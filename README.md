@@ -7,6 +7,8 @@
 
 [Waffle.io](https://waffle.io/Bearukun/Sem3)
 
+[Travis CI](https://travis-ci.com/Bearukun/Sem3)
+
 
 ### Usefull links
 
