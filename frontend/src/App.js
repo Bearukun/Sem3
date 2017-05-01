@@ -16,13 +16,16 @@ class App extends Component {
           To get started, edit everything, and save to reload. (Test)
         </p>
 
-          {this.props.work}
-          {this.props.foo}
-          {this.props.route.foo}
+
+          {"Using {}: " + this.props.route.someText }
+          <br></br>
+          {"NOT USING {}: " + this.props.route.iphone}
+
+
 
 
           {this.props.children}
-          {this.props.route.foo}
+
 
       </div>
     );
