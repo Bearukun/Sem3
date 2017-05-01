@@ -1,2 +1,3 @@
+before_install: cd backend
 language: java
 jdk: oraclejdk8
