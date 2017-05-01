@@ -4,7 +4,6 @@
     <list default="true" id="01efe858-2203-4799-83d5-5c1373e7f169" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,11 +73,11 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="313">
+              <caret line="36" column="12" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+                <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
               </folding>
             </state>
           </provider>
@@ -511,11 +510,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493680312548</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Small test with the {this.props.route.XXXX}">
+      <created>1493680614679</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1493680614679</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11333000" />
+    <option name="totallyTimeSpent" value="11576000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="23" width="1280" height="707" extended-state="0" />
@@ -560,7 +566,8 @@
     <MESSAGE value="Reinstated react-scripts in the 'scripts', to be able to launch the app at all.&#10;Error was due to &quot;npm run eject?&quot;" />
     <MESSAGE value="NPM's installed:&#10;&#10;npm install --save react-router-dom&#10;npm install --save react-bootstrap  &#10;npm install react-router@3.0.5 —save&#10;npm install rc-calendar —save &#10;npm install bootstrap&#10;&#10;All should have been correctly inserted into the package.json dependencies,&#10;so any new user should just write &quot;npm install&quot; and all the packages should be&#10;installed correctly.&#10;&#10;Other things done:&#10;Layer-in-Layer setup done (App has children) &#10;Small Erro handling if wrong address.&#10;Bootstrap and calender up and running in the Ceotest.js&#10;Bootstrap css applied to index.js&#10;&#10;Re-configured the way the app renders the DOM." />
     <MESSAGE value="Finally found a way to better send/pass propsp through the Route/Router&#10;that didn't make the app stop!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finally found a way to better send/pass propsp through the Route/Router&#10;that didn't make the app stop!" />
+    <MESSAGE value="Small test with the {this.props.route.XXXX}" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small test with the {this.props.route.XXXX}" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -591,7 +598,7 @@
           <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -618,7 +625,7 @@
           <caret line="13" column="81" lean-forward="false" selection-start-line="13" selection-start-column="81" selection-end-line="13" selection-end-column="81" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -637,7 +644,7 @@
           <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -672,7 +679,7 @@
           <caret line="2" column="19" lean-forward="false" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -683,7 +690,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -732,7 +739,7 @@
           <caret line="13" column="81" lean-forward="false" selection-start-line="13" selection-start-column="81" selection-end-line="13" selection-end-column="81" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -757,7 +764,7 @@
           <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -782,7 +789,7 @@
           <caret line="13" column="81" lean-forward="false" selection-start-line="13" selection-start-column="81" selection-end-line="13" selection-end-column="81" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -800,7 +807,7 @@
           <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
@@ -929,11 +936,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="313">
+          <caret line="36" column="12" lean-forward="true" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1493680576000" expanded="true" signature="380:395" ph="&lt;div/&gt;" />
+            <marker date="1493680817000" expanded="true" signature="360:375" ph="&lt;div/&gt;" />
           </folding>
         </state>
       </provider>
