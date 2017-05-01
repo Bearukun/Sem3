@@ -10,11 +10,14 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import {Router, Route, hashHistory} from 'react-router'
 
 
+
+
 render((
 
+
     <Router history={hashHistory}>
-        <Route path="/" component={App}>
-            <Route path="/ceotest" component={Ceotest}/>
+        <Route path="/" component={App} foo={"YES!!!! IT WORKS!"}>
+            <Route path="/ceotest" component={Ceotest} />
             <Route path="/stest" component={Stest}/>
             <Route path="*" component={Error}/>
 
@@ -22,5 +25,8 @@ render((
         <Route path="*" component={Error}/>
 
     </Router>
+
+
+
 
 ), document.getElementById('root'));

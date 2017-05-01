@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import '../css/App.css';
-
+import {Router, Route, hashHistory} from 'react-router'
 
 class App extends Component {
   render() {
@@ -16,8 +16,13 @@ class App extends Component {
           To get started, edit everything, and save to reload. (Test)
         </p>
 
-          {this.props.children}
+          {this.props.work}
+          {this.props.foo}
+          {this.props.route.foo}
 
+
+          {this.props.children}
+          {this.props.route.foo}
 
       </div>
     );
