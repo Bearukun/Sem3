@@ -1,9 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import App from './App';
+import Ceotest from './Ceotest'
+import Stest from './Stest';
+import Error from './Error'
 import '../css/index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap-theme.css';
+import {Router, Route, hashHistory} from 'react-router'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+
+render((
+
+    <Router history={hashHistory}>
+        <Route path="/" component={App}>
+            <Route path="/ceotest" component={Ceotest}/>
+            <Route path="/stest" component={Stest}/>
+            <Route path="*" component={Error}/>
+
+        </Route>
+        <Route path="*" component={Error}/>
+
+    </Router>
+
+), document.getElementById('root'));

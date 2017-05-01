@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import '../css/App.css';
 
+
 class App extends Component {
   render() {
     return (
@@ -14,6 +15,10 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit everything, and save to reload. (Test)
         </p>
+
+          {this.props.children}
+
+
       </div>
     );
   }
