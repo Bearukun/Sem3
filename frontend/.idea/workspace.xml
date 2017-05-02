@@ -72,8 +72,8 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            <state relative-caret-position="153">
+              <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -155,7 +155,9 @@
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -355,7 +357,7 @@
       <workItem from="1493645201842" duration="2804000" />
       <workItem from="1493709523759" duration="163000" />
       <workItem from="1493709699525" duration="118000" />
-      <workItem from="1493710075027" duration="694000" />
+      <workItem from="1493710075027" duration="2179000" />
     </task>
     <task id="LOCAL-00001" summary="Small change">
       <created>1493642343715</created>
@@ -399,16 +401,24 @@
       <option name="project" value="LOCAL" />
       <updated>1493680614679</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed script issue">
+      <created>1493711930742</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1493711930742</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12551000" />
+    <option name="totallyTimeSpent" value="14036000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24920969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -439,7 +449,8 @@
     <MESSAGE value="NPM's installed:&#10;&#10;npm install --save react-router-dom&#10;npm install --save react-bootstrap  &#10;npm install react-router@3.0.5 —save&#10;npm install rc-calendar —save &#10;npm install bootstrap&#10;&#10;All should have been correctly inserted into the package.json dependencies,&#10;so any new user should just write &quot;npm install&quot; and all the packages should be&#10;installed correctly.&#10;&#10;Other things done:&#10;Layer-in-Layer setup done (App has children) &#10;Small Erro handling if wrong address.&#10;Bootstrap and calender up and running in the Ceotest.js&#10;Bootstrap css applied to index.js&#10;&#10;Re-configured the way the app renders the DOM." />
     <MESSAGE value="Finally found a way to better send/pass propsp through the Route/Router&#10;that didn't make the app stop!" />
     <MESSAGE value="Small test with the {this.props.route.XXXX}" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small test with the {this.props.route.XXXX}" />
+    <MESSAGE value="Fixed script issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed script issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -824,8 +835,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        <state relative-caret-position="153">
+          <caret line="9" column="16" lean-forward="false" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
