@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-public class makeTestUsers {
+public class MakeTestUsers {
 
   //Only for initial testing REMOVE BEFORE PRODUCTION
   //Run this file to setup the users required to use the initial version of the seed
