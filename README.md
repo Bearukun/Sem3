@@ -12,6 +12,10 @@
 
 ### Usefull links
 
+[3. semester SYS project spring 2017 - CASE](https://github.com/CphBusCosSem3/semester-project/blob/master/3.%20semester%20SYS%20project%20spring%202017%20-%20CASE.pdf)
+
+[3. semester SYS project spring 2017 - Assignment](https://github.com/CphBusCosSem3/semester-project/blob/master/3.%20semester%20SYS%20project%20spring%202017%20-%20Assignment.pdf)
+
 [Airline demo](http://airline-plaul.rhcloud.com)
 
 [Airline API documentation](http://airline-plaul.rhcloud.com/pdf/AirlineREST-API.pdf)
