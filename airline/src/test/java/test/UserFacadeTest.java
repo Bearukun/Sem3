@@ -24,7 +24,7 @@ public class UserFacadeTest {
     setPersistenceUnit(); 
     facade = new UserFacade(Persistence.createEntityManagerFactory(PU.getPersistenceUnitName()));
     //Setup test users
-    utils.makeTestUsers.main(null);
+    utils.MakeTestUsers.main(null);
   }
   
   @Test
