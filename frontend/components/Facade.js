@@ -12,7 +12,7 @@ class Facade {
     }
 
     @action
-    getBooks = () => {
+    getFlights = () => {
         this.errorMessage = "";
         this.messageFromServer = "";
         let errorCode = 200;
