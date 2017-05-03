@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import security.IUser;
+import interfaces.IUser;
 import security.PasswordStorage;
 
 @Entity(name = "SEED_USER")

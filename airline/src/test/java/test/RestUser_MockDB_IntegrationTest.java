@@ -29,7 +29,7 @@ public class RestUser_MockDB_IntegrationTest {
   //Override in a derived test-class to repeat the tests with an alternative database
   public void setupUsersInDB() {
     PU.setPU_Name("pu_memorydb_mock");
-    utils.makeTestUsers.main(null);
+    utils.MakeTestUsers.main(null);
   }
 
   //Utility method to login and set the securityToken
