@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './css/App.css';
 import { Link } from 'react-router';
-import Facade from './components/FacadeOld'
+import facade from './components/Facade'
+import {observer} from "mobx-react";
 
 
 
 
 
-
+@observer
 class App extends Component {
+
+    constructor() {
+        super();
+        {facade.getFlights()};//fetches data
+    }
 
   render() {
     return (
@@ -26,6 +32,18 @@ class App extends Component {
         </p>
 
 
+
+          {/*<ul>{facade._flights.map((flights, index) => <li key={flights[0].flightID}>*/}
+              {/*{book.title} <Link to={`products/details/${book.id}`}>(details)</Link></li>)}*/}
+          {/*</ul>*/}
+
+          {/*<ul>{facade._flights.map((flights, index) => <li key={flights[0].flightID}>*/}
+              {/*{book.title} <Link to={`products/details/${book.id}`}>(details)</Link></li>)}*/}
+          {/*</ul>*/}
+
+          <ul>
+              <li>{facade._flights.toString()}</li>)}
+          </ul>
 
           {"Using {}: " + this.props.route.someText }
           <br></br>
