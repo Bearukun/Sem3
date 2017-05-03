@@ -27,8 +27,6 @@ class App extends Component {
         </div>
         <p className="App-intro">
           To get started, edit everything, and save to reload. (Test)
-
-
         </p>
 
 
@@ -53,6 +51,7 @@ class App extends Component {
               <ul><Link to="/ceotest">CeoTest</Link></ul>
               <ul><Link to="/error">Error</Link></ul>
               <ul><Link to="/stest">Stest</Link></ul>
+              <ul><Link to="/landingpage">Landingpage</Link></ul>
           </ul>
 
 
