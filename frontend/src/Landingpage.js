@@ -7,6 +7,7 @@ import { Link } from 'react-router';
 
 class Ceotest extends React.Component {
 
+//Christian test stuff, ignore nad delete when done
     handleClick(event) {
         event.preventDefault()
         var el = event.target
@@ -18,35 +19,48 @@ class Ceotest extends React.Component {
         return(
 
             <div>
+                {/*Christian stuff, delete later */}
                 <FormGroup>
                     <FormControl type="text" placeholder="Search" />
                 </FormGroup>
-
                 <a href='#' onClick={this.handleClick.bind(this)}>click me</a>
                 <input type='text' id='id1' />
+
+
+                {/*Navbar*/}
                 <Navbar>
                     <Navbar.Header>
                         <Navbar.Brand>
+                            {/*NavBar Title*/}
                             <a href="#">Search Flight</a>
                         </Navbar.Brand>
                     </Navbar.Header>
+                    {/*NavBar Items*/}
                     <Nav>
-                        <NavItem eventKey={1} href="#"> <input type='text' id='id1' placeholder="From Destination" /></NavItem>
-                        <NavItem eventKey={2} href="#"> <input type='text' id='id1' placeholder="To Destination" /></NavItem>
+                        {/*Input box for 'From Destination'*/}
+                        <NavItem eventKey={1} href="#">
+                            <input type='text' id='id1' placeholder="From Destination" />
+                        </NavItem>
+                        {/*Input box for 'To Destination'*/}
+                        <NavItem eventKey={2} href="#">
+                            <input type='text' id='id2' placeholder="To Destination" />
+                        </NavItem>
 
+                        {/*Dropdown element with Calendar for 'Departure Date' */}
                         <NavDropdown eventKey={3} title="From 'Depature Date'" id="basic-nav-dropdown">
                             <index>
                                 <Calendar ref="cal" onClick={this.handleClick.bind(this)} />
                             </index>
-
                         </NavDropdown>
+
+                        {/*Dropdown element with Calendar for 'Return Date' */}
                         <NavDropdown eventKey={4} title=" To 'Return Date'" id="basic-nav-dropdown">
                             <index>
                                 <Calendar ref="cal" onClick={this.handleClick.bind(this)} />
                             </index>
-
                         </NavDropdown>
 
+                        {/*Dropdown element with number/amount of Passengers */}
                         <NavItem eventKey={5}>
                             <DropdownButton title="Passengers">
                                 <MenuItem eventKey="1">1</MenuItem>
@@ -60,6 +74,7 @@ class Ceotest extends React.Component {
                             </DropdownButton>
                     </NavItem >
 
+                        {/*Dropdown element with selection of ticket type*/}
                         <NavItem eventKey={6}>
                         <DropdownButton title="Return type">
                         <MenuItem eventKey="1">Single</MenuItem>
@@ -67,6 +82,7 @@ class Ceotest extends React.Component {
                         </DropdownButton>
                         </NavItem >
 
+                        {/*Search button*/}
                         <NavItem eventKey={7}>
                             <Link to="/landingpage/searchresults"><Button bsStyle="warning">Search</Button></Link>
                     </NavItem >
@@ -75,7 +91,7 @@ class Ceotest extends React.Component {
                 </Navbar>
 
 
-
+                {/*Displays/renders Searchresults below the page */}
                 {this.props.children}
             </div>
 

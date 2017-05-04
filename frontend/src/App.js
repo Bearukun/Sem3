@@ -57,7 +57,7 @@ class App extends Component {
 
 
 
-
+          {/*Displays/renders Searchresults below the page */}
           {this.props.children}
 
 
