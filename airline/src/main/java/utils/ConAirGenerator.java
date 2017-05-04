@@ -17,7 +17,7 @@ public class ConAirGenerator {
 
     private Random rng = new Random();
 
-    private String[] IataCodes = {"CPH", "JFK", "LHR", "AMS", "BCL"};
+    private String[] IataCodes = {"CPH", "JFK", "LHR", "AMS", "BCN"};
 
     /**
      * Method used to generate flights from an airport with no given destination
