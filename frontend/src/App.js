@@ -39,9 +39,12 @@ class App extends Component {
               {/*{book.title} <Link to={`products/details/${book.id}`}>(details)</Link></li>)}*/}
           {/*</ul>*/}
 
-          <ul>
-              <li>{facade._flights.toString()}</li>)}
-          </ul>
+          {/*<ul>{facade._airlines.flights.map((flight, index) =>*/}
+              {/*<li>a*/}
+              {/*</li>)}*/}
+          {/*</ul>*/}
+
+          <p>{facade._airlines[0].slogan}</p>
 
           {"Using {}: " + this.props.route.someText }
           <br></br>

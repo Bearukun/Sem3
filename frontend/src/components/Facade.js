@@ -1,12 +1,12 @@
 import { observable, action, computed} from "mobx";
 import fetchHelper from "./fetchHelpers"
-const URL = "http://airline-plaul.rhcloud.com/";
+const URL = "http://localhost:8084/seedMaven/api/flights/";
 const URLL = "https://139.59.212.171.xip.io/CA3Backend/";
-const abc = "CPH/BCN/2017-05-31T00:00:00.000Z/4";
+const abc = "CPH/2017-05-04/4";
 class Facade {
     @observable messageFromServer = "";
     @observable errorMessage = "";
-    @observable _flights = [];
+    @observable _airlines = {};
     @action
     setErrorMessage = (err) => {
     this.errorMessage = err;
@@ -23,8 +23,8 @@ class Facade {
         this.messageFromServer = "";
         let errorCode = 200;
         const options = fetchHelper.makeOptions("GET", true);
-        // fetch(URL + "api/flightinfo/"+abc, options)
-        fetch(URLL + "api/demoall", options)
+        fetch(URL +abc, options)
+        // fetch(URLL + "api/demoall", options)
         // fetch("http://airline-plaul.rhcloud.com/api/flightinfo/CPH/BCN/2017-05-31T00:00:00.000Z/4")
             .then((res) => {
                 if (res.status > 210 || !res.ok) {
@@ -37,9 +37,8 @@ class Facade {
                     throw new Error(`${res.error.message} (${res.error.code})`);
                 }
                 else {
-                    //this._flights.replace(res);
-                    alert(res);
-                     //alert("Data fetched successfully");
+                    // alert(res.flights);
+                    this._airlines.replace(res);
                 }
             })).catch(err => {
             //This is the only way (I have found) to verify server is not running
