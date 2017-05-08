@@ -1,12 +1,36 @@
 import { observable, action, computed} from "mobx";
 import fetchHelper from "./fetchHelpers"
 const URL = "http://localhost:8084/seedMaven/api/flights/";
-const URLL = "https://139.59.212.171.xip.io/CA3Backend/";
 const abc = "CPH/2017-05-04/4";
 class Facade {
     @observable messageFromServer = "";
     @observable errorMessage = "";
-    @observable _airlines = {};
+   // @observable _airlines = [];
+
+    @observable _airlines = [{
+            "airline": "",
+            "slogan": "",
+            "code": "",
+            "flights": [
+                {
+                    "flightId": "",
+                    "flightNumber": "",
+                    "date": "",
+                    "numberOfSeats": 0,
+                    "totalPrice": 1,
+                    "travelTime": 2,
+                    "origin": "",
+                    "destination": ""
+                }]
+        }];
+
+
+
+
+
+
+
+
     @action
     setErrorMessage = (err) => {
     this.errorMessage = err;
@@ -37,7 +61,7 @@ class Facade {
                     throw new Error(`${res.error.message} (${res.error.code})`);
                 }
                 else {
-                    // alert(res.flights);
+                    //alert(res[0].airline);
                     this._airlines.replace(res);
                 }
             })).catch(err => {

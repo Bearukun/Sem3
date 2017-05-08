@@ -7,6 +7,7 @@ package rest;
 
 import com.google.gson.Gson;
 import entity.Airline;
+import java.util.ArrayList;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Consumes;
@@ -49,7 +50,9 @@ public class Flight {
         //Make a new airline object, with the airline object returned from the CAG.
         Airline airline = cag.generateFlights(from, date, tickets);
         
-        return gson.toJson(airline);
+        ArrayList<Airline> airlines = new ArrayList();
+        airlines.add(airline);
+        return gson.toJson(airlines);
         
     }
     

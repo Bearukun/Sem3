@@ -44,7 +44,7 @@ class App extends Component {
               {/*</li>)}*/}
           {/*</ul>*/}
 
-          <p>{facade._airlines.toString()}</p>
+          <p>{facade._airlines[0].airline}</p>
 
           {"Using {}: " + this.props.route.someText }
           <br></br>

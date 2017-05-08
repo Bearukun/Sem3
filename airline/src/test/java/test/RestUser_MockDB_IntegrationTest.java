@@ -29,7 +29,7 @@ public class RestUser_MockDB_IntegrationTest {
   //Override in a derived test-class to repeat the tests with an alternative database
   public void setupUsersInDB() {
     PU.setPU_Name("pu_memorydb_mock");
-    utils.MakeTestUsers.main(null);
+//    utils.MakeTestUsers.main(null);
   }
 
   //Utility method to login and set the securityToken
@@ -80,30 +80,30 @@ public class RestUser_MockDB_IntegrationTest {
             .body("message", equalTo("result for all"));
   }
 
-  @Test
-  public void tesRestForAdmin() {
-    login("admin", "test");
-    given()
-            .contentType("application/json")
-            .header("Authorization", "Bearer " + securityToken)
-            .when()
-            .get("/api/demoadmin").then()
-            .statusCode(200)
-            .body("message", equalTo("Hello Admin from server (call accesible by only authenticated ADMINS)"))
-            .body("serverTime", notNullValue());
-  }
+//  @Test
+//  public void tesRestForAdmin() {
+//    login("admin", "test");
+//    given()
+//            .contentType("application/json")
+//            .header("Authorization", "Bearer " + securityToken)
+//            .when()
+//            .get("/api/demoadmin").then()
+//            .statusCode(200)
+//            .body("message", equalTo("Hello Admin from server (call accesible by only authenticated ADMINS)"))
+//            .body("serverTime", notNullValue());
+//  }
 
-  @Test
-  public void testRestForUser() {
-    login("user", "test");
-    given()
-            .contentType("application/json")
-            .header("Authorization", "Bearer " + securityToken)
-            .when()
-            .get("/api/demouser").then()
-            .statusCode(200)
-            .body("message", equalTo("Hello User from Server (Accesible by only authenticated USERS)"));
-  }
+//  @Test
+//  public void testRestForUser() {
+//    login("user", "test");
+//    given()
+//            .contentType("application/json")
+//            .header("Authorization", "Bearer " + securityToken)
+//            .when()
+//            .get("/api/demouser").then()
+//            .statusCode(200)
+//            .body("message", equalTo("Hello User from Server (Accesible by only authenticated USERS)"));
+//  }
 
   @Test
   public void userNotAuthenticated() {
