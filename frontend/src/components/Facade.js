@@ -5,8 +5,6 @@ const abc = "CPH/2017-05-04/4";
 class Facade {
     @observable messageFromServer = "";
     @observable errorMessage = "";
-   // @observable _airlines = [];
-
     @observable _airlines = [{
             "airline": "",
             "slogan": "",
