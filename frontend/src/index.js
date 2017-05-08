@@ -18,15 +18,9 @@ render((
 
 
     <Router history={hashHistory}>
-        <Route path="/" component={App} someText={"YES!!!! IT WORKS!"} iphone="Hell yeah! This is awwwwsome!"
-               iphone2={"yep yep!"}>
-            <Route path="/ceotest" component={Ceotest}  />
-            <Route path="/stest" component={Stest}/>
-            <Route path="/landingpage" component={Landingpage}>
-            <Route path="/landingpage/searchresults" component={Searchresults}/>
-        </Route>
+        <Route path="/" component={Landingpage}>
+            <Route path="/searchresults" component={Searchresults}/>
             <Route path="*" component={Error}/>
-
         </Route>
         <Route path="*" component={Error}/>
 

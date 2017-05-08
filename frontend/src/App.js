@@ -26,29 +26,14 @@ class App extends Component {
 
         </div>
         <p className="App-intro">
-          To get started, edit everything, and save to reload. (Test)
+
         </p>
 
 
 
-          {/*<ul>{facade._flights.map((flights, index) => <li key={flights[0].flightID}>*/}
-              {/*{book.title} <Link to={`products/details/${book.id}`}>(details)</Link></li>)}*/}
-          {/*</ul>*/}
 
-          {/*<ul>{facade._flights.map((flights, index) => <li key={flights[0].flightID}>*/}
-              {/*{book.title} <Link to={`products/details/${book.id}`}>(details)</Link></li>)}*/}
-          {/*</ul>*/}
 
-          {/*<ul>{facade._airlines.flights.map((flight, index) =>*/}
-              {/*<li>a*/}
-              {/*</li>)}*/}
-          {/*</ul>*/}
 
-          <p>{facade._airlines[0].airline}</p>
-
-          {"Using {}: " + this.props.route.someText }
-          <br></br>
-          {"NOT USING {}: " + this.props.route.iphone}
 
           <ul role="nav">
               <ul><Link to="/ceotest">CeoTest</Link></ul>

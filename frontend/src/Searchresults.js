@@ -14,9 +14,35 @@ class Searchresults extends React.Component{
             return (hours + "h "+ minutes + "m");
         }
 
+        var currentValue = 0;
+        var myRadio = 0;
+        function handleClicks(myRadio) {
+            // return(
+// currentValue = myRadio.value
+//             alert('Old value: ' + currentValue)
+//             )
+            // alert('New value: ' + myRadio.value);
+
+        }
+
+        // function Validate() {
+        //     var radios = document.getElementsByName('IDType')
+        //
+        //     for (var i = 0; i < radios.length; i++) {
+        //         if (radios[i].checked) {
+        //             alert("Selected Value = " + radios[i].value);
+        //             return true; // checked
+        //         }
+        //     };
+        //
+        //     // not checked, show error
+        //     document.getElementById('ValidationError').innerHTML = 'Error!!!';
+        //     return false;
+        // }
+        // const flightType =
         const rows = facade._airlines.map((airline) =>{
             return(
-                airline.flights.map(function(flight){
+                airline.flights.map(function(flight, index){
                     return(
                         <div>
                             {/*Grid Containing the Flight Details*/}
@@ -24,26 +50,30 @@ class Searchresults extends React.Component{
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="panel panel-default">
-                                            <div className="panel-heading">Flight #</div>
+
+                                            <div className="panel-heading">Flight {index+1}</div>
                                             <div className="panel-body ">
                                                 <Row className="show-grid">
                                                     {/*Book Now Panel*/}
                                                     <Col xs={2} md={2}>
                                                         <div className="panel panel-default">
                                                             {/* Panel Titel*/}
-                                                            <div className="panel-heading">Book Now!</div>
                                                             <div className="panel-body" >
-                                                                <h5>[Price kr]</h5>
+                                                                <h5>€{Math.round(flight.totalPrice).toFixed(2)}</h5>
                                                                 <br></br>
-                                                                <button>Book</button>
+
                                                             </div>
+                                                            <div className="panel-heading">Select
+
+                                                                <input type="radio" name="myRadios" onClick={handleClicks(this)} value={index+1} />
+                                                            </div>
+
                                                         </div>
                                                     </Col>
                                                     {/* Panel <Col>, used for arranging the details inside the panel in rows/cols */}
                                                     <Col xs={10} md={10}>
                                                         <div className="panel panel-default">
                                                             {/* Panel Titel*/}
-                                                            <div className="panel-heading">Departure</div>
                                                             <div className="panel-body" >
                                                                 <Grid>
                                                                     {/* Airline & Logo Details + Col settings*/}
@@ -82,39 +112,8 @@ class Searchresults extends React.Component{
                                                     {/* Secret/invisible <Col> to offset the bottom (Return) panel and allign it corretly with the above
                                                      panel (Departure) */}
                                                     <Col xs={2} md={2}></Col>
-                                                    {/* Panel <Col>, used for arranging the details inside the panel in rows/cols */}
-                                                    <Col xs={10} md={10}>
-                                                        <div className="panel panel-default">
-                                                            {/* Panel Title*/}
-                                                            <div className="panel-heading">Return</div>
-                                                            <div className="panel-body" >
-                                                                <Grid>
-                                                                    {/* Airline & Logo Details + Col settings*/}
-                                                                    <Col xs={1} md={1}>
-                                                                        <div><h5>{airline.airline}</h5></div>
-                                                                        <br></br>
-                                                                        <h5>[Logo]</h5>
-                                                                    </Col>
-                                                                    {/* Airport code, Departime & City details + Col settings*/}
-                                                                    <Col xs={3} md={3}>
-                                                                        <div><h5>{flight.destination} + [Depart Time]</h5></div>
-                                                                        <br></br>
-                                                                        <h5>[City]</h5>
-                                                                    </Col>
-                                                                    {/* Flight Duration Details + Col settings*/}
-                                                                    <Col xs={2} md={2}>
-                                                                        <div><h5>[Flight Duration]</h5></div>
-                                                                    </Col>
-                                                                    {/* Arrival Time, Airport Code details & City + Col settings*/}
-                                                                    <Col xs={3} md={3}>
-                                                                        <div><h5>[Arrival Time] + {flight.origin}</h5></div>
-                                                                        <br></br>
-                                                                        <h5>[City]</h5>
-                                                                    </Col>
-                                                                </Grid>
-                                                            </div>
-                                                        </div>
-                                                    </Col>
+
+
                                                 </Row>
                                             </div>
                                         </div>
@@ -133,26 +132,14 @@ class Searchresults extends React.Component{
             // });
         });
 
-
-
-
-
-
-
-
         return(
-
-
-
             <div>
-
-                {/*Title*/}
-                <h1>Search Results</h1>
+                <div className="panel-heading"><b>Outward</b></div>
                 {rows}
+                <div className="panel-heading"><b>Return</b></div>
             </div>
         );
     }
-
 }
 
 export default Searchresults

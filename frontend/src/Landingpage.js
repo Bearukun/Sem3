@@ -3,8 +3,10 @@ import { Nav, Navbar, NavItem, NavDropdown, MenuItem, FormGroup, FormControl, Dr
 import {index} from 'rc-calendar/assets/index.css'
 import  Calendar from 'rc-calendar'
 import { Link } from 'react-router';
+import facade from './components/Facade'
+import {observer} from "mobx-react";
 
-
+@observer
 class Ceotest extends React.Component {
 
 //Christian test stuff, ignore nad delete when done
@@ -14,17 +16,17 @@ class Ceotest extends React.Component {
         console.log(el)
     }
 
+    constructor() {
+        super();
+        {facade.getFlights()};//fetches data
+    }
+
 
     render(){
         return(
 
             <div>
-                {/*Christian stuff, delete later */}
-                <FormGroup>
-                    <FormControl type="text" placeholder="Search" />
-                </FormGroup>
-                <a href='#' onClick={this.handleClick.bind(this)}>click me</a>
-                <input type='text' id='id1' />
+
 
 
                 {/*Navbar*/}
@@ -84,7 +86,7 @@ class Ceotest extends React.Component {
 
                         {/*Search button*/}
                         <NavItem eventKey={7}>
-                            <Link to="/landingpage/searchresults"><Button bsStyle="warning">Search</Button></Link>
+                            <Link to="/searchresults"><Button bsStyle="warning">Search</Button></Link>
                     </NavItem >
 
                     </Nav>
