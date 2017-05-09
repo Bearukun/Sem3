@@ -4,16 +4,14 @@ import {index} from 'rc-calendar/assets/index.css'
 import  Calendar from 'rc-calendar'
 import { Link } from 'react-router';
 import facade from './components/Facade'
-
+import {observer} from "mobx-react";
 import Autocomplete from 'react-autocomplete'
 import { getStates, matchStateToTerm, sortStates, styles } from './components/airportUtil'
 
 
 
-
-class Ceotest extends React.Component {
-
-
+@observer
+class Landingpage extends React.Component {
 
 
 //Christian test stuff, ignore nad delete when done
@@ -146,4 +144,4 @@ class Ceotest extends React.Component {
 
 }
 
-export default Ceotest
+export default Landingpage
