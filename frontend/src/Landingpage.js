@@ -1,13 +1,20 @@
 import React from 'react'
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem, FormGroup, FormControl, DropdownButton, Button} from 'react-bootstrap'
+import { Nav, Navbar, NavItem, NavDropdown, MenuItem, DropdownButton, Button} from 'react-bootstrap'
 import {index} from 'rc-calendar/assets/index.css'
 import  Calendar from 'rc-calendar'
 import { Link } from 'react-router';
 import facade from './components/Facade'
-import {observer} from "mobx-react";
 
-@observer
+import Autocomplete from 'react-autocomplete'
+import { getStates, matchStateToTerm, sortStates, styles } from './components/airportUtil'
+
+
+
+
 class Ceotest extends React.Component {
+
+
+
 
 //Christian test stuff, ignore nad delete when done
     handleClick(event) {
@@ -19,6 +26,8 @@ class Ceotest extends React.Component {
     constructor() {
         super();
         {facade.getFlights()};//fetches data
+        this.state = {valueFrom: ''};
+        this.state = {valueTo: ''}
     }
 
 
@@ -26,8 +35,6 @@ class Ceotest extends React.Component {
         return(
 
             <div>
-
-
 
                 {/*Navbar*/}
                 <Navbar>
@@ -41,11 +48,46 @@ class Ceotest extends React.Component {
                     <Nav>
                         {/*Input box for 'From Destination'*/}
                         <NavItem eventKey={1} href="#">
-                            <input type='text' id='id1' placeholder="From Destination" />
+                            {/*Autocomplete for 'From Destination'*/}
+                            <label htmlFor="states-autocomplete-from">From </label>
+                            <Autocomplete
+                                value={this.state.valueFrom}
+                                inputProps={{ name: 'US state', id: 'states-autocomplete' }}
+                                items={getStates()}
+                                getItemValue={(item) => item.name}
+                                shouldItemRender={matchStateToTerm}
+                                sortItems={sortStates}
+                                onChange={(event, valueFrom) => this.setState({ valueFrom })}
+                                onSelect={valueFrom => this.setState({ valueFrom })}
+                                renderItem={(item, isHighlighted) => (
+                                    <div
+                                        style={isHighlighted ? styles.highlightedItem : styles.item}
+                                        key={item.abbr}
+                                    >{item.name}</div>
+                                )}
+                            />
+
                         </NavItem>
                         {/*Input box for 'To Destination'*/}
                         <NavItem eventKey={2} href="#">
-                            <input type='text' id='id2' placeholder="To Destination" />
+                            {/*Autocomplete for 'To Destination'*/}
+                            <label htmlFor="states-autocomplete-to">To </label>
+                            <Autocomplete
+                                value={this.state.valueTo}
+                                inputProps={{ name: 'US state', id: 'states-autocomplete-to' }}
+                                items={getStates()}
+                                getItemValue={(item) => item.name}
+                                shouldItemRender={matchStateToTerm}
+                                sortItems={sortStates}
+                                onChange={(event, valueTo) => this.setState({ valueTo })}
+                                onSelect={valueTo => this.setState({ valueTo })}
+                                renderItem={(item, isHighlighted) => (
+                                    <div
+                                        style={isHighlighted ? styles.highlightedItem : styles.item}
+                                        key={item.abbr}
+                                    >{item.name}</div>
+                                )}
+                            />
                         </NavItem>
 
                         {/*Dropdown element with Calendar for 'Departure Date' */}
@@ -91,6 +133,7 @@ class Ceotest extends React.Component {
 
                     </Nav>
                 </Navbar>
+
 
 
                 {/*Displays/renders Searchresults below the page */}

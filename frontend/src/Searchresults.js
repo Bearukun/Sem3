@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Row, Col,} from 'react-bootstrap'
+import { Grid, Row, Col, Form} from 'react-bootstrap'
 import { AppRegistry, View, Image } from 'react-native';
 import facade from './components/Facade'
 import {observer} from "mobx-react";
@@ -24,6 +24,8 @@ class Searchresults extends React.Component{
             // alert('New value: ' + myRadio.value);
 
         }
+
+
 
         // function Validate() {
         //     var radios = document.getElementsByName('IDType')
@@ -124,6 +126,8 @@ class Searchresults extends React.Component{
 
 
                             </Grid>
+
+
                         </div>
                     )
                 })
@@ -137,6 +141,8 @@ class Searchresults extends React.Component{
                 <div className="panel-heading"><b>Outward</b></div>
                 {rows}
                 <div className="panel-heading"><b>Return</b></div>
+
+
             </div>
         );
     }
