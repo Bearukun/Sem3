@@ -8,23 +8,43 @@ import renderIf from 'render-if';
 
 @observer
 class Searchresults extends React.Component {
+
+    constructor(){
+        super();
+        this.state = {
+            selectedRadio: "elnfalkfnre"
+        };
+    }
+
+    handleClicks  = (myRadio) =>{
+        // alert(myRadio);
+        console.log("xxx"+ myRadio);
+
+        this.setState({
+            "selectedRadio": myRadio
+        })
+    }
+
+
     render() {
-        function convertTravelTime(min) {
+        let selectedRadio = 0;
+        function convertTravelTime (min) {
             var hours = Math.trunc(min / 60);
             var minutes = min % 60;
             return (hours + "h " + minutes + "m");
         }
 
-        var selectedRadio = 0;
 
-        function handleClicks(myRadio) {
-            selectedRadio = myRadio;
-        }
+
+
 
         let flightType = "return";
+        console.log("this 1",this);
         const rowsOut = facade._airlines.map((airline) => {
+            console.log("this 2",this);
             return (
                 airline.flights.map(function (flight, index) {
+                    console.log("this 3",this);
                     return (
                         <div>
                             {/*Grid Containing the Flight Details*/}
@@ -49,7 +69,7 @@ class Searchresults extends React.Component {
 
                                                                 {/*<input type="radio" name="myRadios" onClick={() => { this.handleClicks(this) }} value={index+1} />*/}
                                                                 <input type="radio" name="myRadios" onClick={() => {
-                                                                    handleClicks(index + 1)
+                                                                    this.handleClicks(index + 1)
                                                                 }} value={index + 1}/>
 
                                                             </div>
@@ -112,11 +132,10 @@ class Searchresults extends React.Component {
                             </Grid>
                         </div>
                     )
-                })
+                },this)
             )
-            // });
-            // });
-        });
+        }
+        );
 
         const rowsReturn = facade._airlines.map((airline) => {
             return (
@@ -145,7 +164,7 @@ class Searchresults extends React.Component {
 
                                                                 {/*<input type="radio" name="myRadios" onClick={() => { this.handleClicks(this) }} value={index+1} />*/}
                                                                 <input type="radio" name="myRadios" onClick={() => {
-                                                                    handleClicks(index + 1)
+                                                                    this.handleClicks(index + 1)
                                                                 }} value={index + 1}/>
 
                                                             </div>
@@ -230,10 +249,8 @@ class Searchresults extends React.Component {
                             {/*<a className="navbar-brand">CA2 - Group 13</a>*/}
                         </div>
                         <ul className="nav navbar-nav">
-                            <li className="active"><a href="#">The project</a></li>
-                            <li><a href="https://github.com/Bearukun/CA2" target="_blank">GitHub</a></li>
-                            <li><a href="apidocs/index.html" target="_blank">Javadoc</a></li>
-                            <li><a href="documentation.html">Documentation</a></li>
+                            <li><a href="https://github.com/Bearukun/CA2" target="_blank">{this.state.selectedRadio}</a></li>
+                            {/*<li><a href="https://github.com/Bearukun/CA2" target="_blank">{selectedRadio}</a></li>*/}
 
                         </ul>
                     </div>

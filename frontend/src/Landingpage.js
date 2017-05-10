@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import facade from './components/Facade'
 import {observer} from "mobx-react";
 import Autocomplete from 'react-autocomplete'
-import { getStates, matchStateToTerm, sortStates, styles } from './components/airportUtil'
+import { getAirports, matchAirportToTerm, sortAirports, styles } from './components/airportUtil'
 
 
 
@@ -25,7 +25,7 @@ class Landingpage extends React.Component {
         super();
         {facade.getFlights()};//fetches data
         this.state = {valueFrom: ''};
-        this.state = {valueTo: ''}
+        this.state = {valueTo: ''};
     }
 
 
@@ -47,14 +47,14 @@ class Landingpage extends React.Component {
                         {/*Input box for 'From Destination'*/}
                         <NavItem eventKey={1} href="#">
                             {/*Autocomplete for 'From Destination'*/}
-                            <label htmlFor="states-autocomplete-from">From </label>
+                            <label htmlFor="airports-autocomplete-from">From </label>
                             <Autocomplete
                                 value={this.state.valueFrom}
-                                inputProps={{ name: 'US state', id: 'states-autocomplete' }}
-                                items={getStates()}
+                                inputProps={{ name: 'US state', id: 'airports-autocomplete' }}
+                                items={getAirports()}
                                 getItemValue={(item) => item.name}
-                                shouldItemRender={matchStateToTerm}
-                                sortItems={sortStates}
+                                shouldItemRender={matchAirportToTerm}
+                                sortItems={sortAirports}
                                 onChange={(event, valueFrom) => this.setState({ valueFrom })}
                                 onSelect={valueFrom => this.setState({ valueFrom })}
                                 renderItem={(item, isHighlighted) => (
@@ -69,14 +69,14 @@ class Landingpage extends React.Component {
                         {/*Input box for 'To Destination'*/}
                         <NavItem eventKey={2} href="#">
                             {/*Autocomplete for 'To Destination'*/}
-                            <label htmlFor="states-autocomplete-to">To </label>
+                            <label htmlFor="airports-autocomplete-to">To </label>
                             <Autocomplete
                                 value={this.state.valueTo}
-                                inputProps={{ name: 'US state', id: 'states-autocomplete-to' }}
-                                items={getStates()}
+                                inputProps={{ name: 'US state', id: 'airports-autocomplete-to' }}
+                                items={getAirports()}
                                 getItemValue={(item) => item.name}
-                                shouldItemRender={matchStateToTerm}
-                                sortItems={sortStates}
+                                shouldItemRender={matchAirportToTerm}
+                                sortItems={sortAirports}
                                 onChange={(event, valueTo) => this.setState({ valueTo })}
                                 onSelect={valueTo => this.setState({ valueTo })}
                                 renderItem={(item, isHighlighted) => (
