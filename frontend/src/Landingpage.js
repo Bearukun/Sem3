@@ -13,6 +13,10 @@ import { getAirports, matchAirportToTerm, sortAirports, styles } from './compone
 @observer
 class Landingpage extends React.Component {
 
+    handleSelect(evt) {
+    // what am I suppose to write in there to get the value?
+    console.log(evt)
+}
 
 //Christian test stuff, ignore nad delete when done
     handleClick(event) {
@@ -91,20 +95,20 @@ class Landingpage extends React.Component {
                         {/*Dropdown element with Calendar for 'Departure Date' */}
                         <NavDropdown eventKey={3} title="From 'Depature Date'" id="basic-nav-dropdown">
                             <index>
-                                <Calendar ref="cal" onClick={this.handleClick.bind(this)} />
+                                <Calendar ref="cal" onSelect={function(evt){console.log(evt)}} />
                             </index>
                         </NavDropdown>
 
                         {/*Dropdown element with Calendar for 'Return Date' */}
                         <NavDropdown eventKey={4} title=" To 'Return Date'" id="basic-nav-dropdown">
                             <index>
-                                <Calendar ref="cal" onClick={this.handleClick.bind(this)} />
+                                <Calendar ref="cal" onSelect={function(evt){console.log(evt)}} />
                             </index>
                         </NavDropdown>
 
                         {/*Dropdown element with number/amount of Passengers */}
                         <NavItem eventKey={5}>
-                            <DropdownButton title="Passengers">
+                            <DropdownButton title="Passengers" onSelect={function(evt){console.log(evt)}} >
                                 <MenuItem eventKey="1">1</MenuItem>
                                 <MenuItem eventKey="2">2</MenuItem>
                                 <MenuItem eventKey="3">3</MenuItem>
@@ -118,9 +122,9 @@ class Landingpage extends React.Component {
 
                         {/*Dropdown element with selection of ticket type*/}
                         <NavItem eventKey={6}>
-                        <DropdownButton title="Return type">
-                        <MenuItem eventKey="1">Single</MenuItem>
-                        <MenuItem eventKey="2">Return</MenuItem>
+                        <DropdownButton title="Return type" onSelect={function(evt){console.log(evt)}}>
+                        <MenuItem eventKey="Single">Single</MenuItem>
+                        <MenuItem eventKey="Return">Return</MenuItem>
                         </DropdownButton>
                         </NavItem >
 
