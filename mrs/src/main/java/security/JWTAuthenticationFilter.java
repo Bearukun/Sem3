@@ -1,7 +1,5 @@
 package security;
 
-import interfaces.IUser;
-import interfaces.IUserFacade;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSVerifier;
 import com.nimbusds.jose.crypto.MACVerifier;
