@@ -39,10 +39,8 @@ class Landingpage extends React.Component {
 //Multiple of same type of this.state: Only 1 will work correctly! Need some more unique id's?
     constructor() {
         super();
-        this.state = {valueFrom: ''};
-        this.state = {valueTo: ''};
-        this.state = {dropPassAmount: 'Passengers'};
-        this.state = {dropReturnType: "Return Type"};
+        this.state = {valueFrom: 'Los', valueTo: 'Was', dropPassAmount: 'Passengers', dropReturnType: 'Return Type'};
+
     }
 
     render(){
@@ -77,7 +75,7 @@ class Landingpage extends React.Component {
                                 shouldItemRender={matchAirportToTerm}
                                 sortItems={sortAirports}
                                 onChange={(event, valueFrom) => this.setState({ valueFrom })}
-                                onSelect={valueFrom => this.setState({ valueFrom })}
+                                onSelect={valueFrom => this.setState.test1({ valueFrom })}
                                 renderItem={(item, isHighlighted) => (
                                     <div
                                         style={isHighlighted ? styles.highlightedItem : styles.item}
