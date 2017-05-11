@@ -45,7 +45,7 @@ class Landingpage extends React.Component {
 
     render(){
         let origin = "CPH";
-        let destination = "";
+        let destination = "JFK";
         let date = "2017-05-04";
         let passengers = 4;
 

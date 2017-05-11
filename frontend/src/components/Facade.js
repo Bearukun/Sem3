@@ -45,10 +45,16 @@ class Facade {
         this.messageFromServer = "";
         let errorCode = 200;
         const options = fetchHelper.makeOptions("GET", true);
-        // fetch(URL +origin+"/"+destination+"/"+date+"/"+passengers, options)
-        fetch(URL +origin+"/"+date+"/"+passengers, options)
-        // fetch("http://airline-plaul.rhcloud.com/api/flightinfo/CPH/BCN/2017-05-31T00:00:00.000Z/4")
-            .then((res) => {
+        var p1 = new Promise((resolve, reject) => {
+            if (destination === "") {
+                resolve(fetch(URL + origin + "/" + date + "/" + passengers, options));
+            }
+            else {
+                console.log("in else");
+                resolve(fetch(URL + origin + "/" + destination + "/" + date + "/" + passengers, options));
+            }
+        });
+            p1.then((res) => {
                 if (res.status > 210 || !res.ok) {
                     errorCode = res.status;
                 }
