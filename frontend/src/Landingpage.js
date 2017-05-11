@@ -39,15 +39,18 @@ class Landingpage extends React.Component {
 //Multiple of same type of this.state: Only 1 will work correctly! Need some more unique id's?
     constructor() {
         super();
-        {facade.getFlights()};//fetches data
         this.state = {valueFrom: ''};
         this.state = {valueTo: ''};
         this.state = {dropPassAmount: 'Passengers'};
         this.state = {dropReturnType: "Return Type"};
     }
 
-
     render(){
+        let origin = "CPH";
+        let destination = "";
+        let date = "2017-05-04";
+        let passengers = 4;
+
         return(
 
             <div>
@@ -147,6 +150,8 @@ class Landingpage extends React.Component {
                         {/*Search button*/}
                         <NavItem eventKey={7}>
                             <Link to="/searchresults"><Button bsStyle="warning">Search</Button></Link>
+
+                            {facade.getFlights(origin, destination, date, passengers)}{/*fetches data*/}
                     </NavItem >
 
                     </Nav>

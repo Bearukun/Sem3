@@ -14,7 +14,7 @@ class App extends Component {
 
     constructor() {
         super();
-        {facade.getFlights()};//fetches data
+        // {facade.getFlights()};//fetches data
     }
 
   render() {

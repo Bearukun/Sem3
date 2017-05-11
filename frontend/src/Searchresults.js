@@ -5,6 +5,7 @@ import facade from './components/Facade'
 import {observer} from "mobx-react";
 import {observable, action, computed} from "mobx";
 import renderIf from 'render-if';
+import './css/App.css';
 
 @observer
 class Searchresults extends React.Component {
@@ -12,22 +13,21 @@ class Searchresults extends React.Component {
     constructor(){
         super();
         this.state = {
-            selectedRadio: "elnfalkfnre"
+            selectedRadio: "Total Price:",
+            bottomBarTotalPrice: "Total Price: €"
         };
     }
 
-    handleClicks  = (myRadio) =>{
-        // alert(myRadio);
-        console.log("xxx"+ myRadio);
-
+    handleClicks = (myRadio) =>{
         this.setState({
-            "selectedRadio": myRadio
+            "selectedRadio": this.state.bottomBarTotalPrice+Math.round(myRadio).toFixed(2)
         })
     }
 
 
     render() {
         let selectedRadio = 0;
+
         function convertTravelTime (min) {
             var hours = Math.trunc(min / 60);
             var minutes = min % 60;
@@ -39,12 +39,9 @@ class Searchresults extends React.Component {
 
 
         let flightType = "return";
-        console.log("this 1",this);
         const rowsOut = facade._airlines.map((airline) => {
-            console.log("this 2",this);
             return (
                 airline.flights.map(function (flight, index) {
-                    console.log("this 3",this);
                     return (
                         <div>
                             {/*Grid Containing the Flight Details*/}
@@ -66,14 +63,8 @@ class Searchresults extends React.Component {
 
                                                             </div>
                                                             <div className="panel-heading">Select
-
-                                                                {/*<input type="radio" name="myRadios" onClick={() => { this.handleClicks(this) }} value={index+1} />*/}
-                                                                <input type="radio" name="myRadios" onClick={() => {
-                                                                    this.handleClicks(index + 1)
-                                                                }} value={index + 1}/>
-
+                                                                <input type="radio" name="myRadios" value={index + 1} onClick={() => {this.handleClicks(flight.totalPrice)}} />
                                                             </div>
-
                                                         </div>
                                                     </Col>
                                                     {/* Panel <Col>, used for arranging the details inside the panel in rows/cols */}
@@ -250,8 +241,7 @@ class Searchresults extends React.Component {
                         </div>
                         <ul className="nav navbar-nav">
                             <li><a href="https://github.com/Bearukun/CA2" target="_blank">{this.state.selectedRadio}</a></li>
-                            {/*<li><a href="https://github.com/Bearukun/CA2" target="_blank">{selectedRadio}</a></li>*/}
-
+                            <li><button className="Btn">Book</button></li>
                         </ul>
                     </div>
                 </nav>

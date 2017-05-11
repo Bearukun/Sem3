@@ -40,13 +40,13 @@ class Facade {
     // }
 
     @action
-    getFlights = () => {
+    getFlights = (origin, destination, date, passengers) => {
         this.errorMessage = "";
         this.messageFromServer = "";
         let errorCode = 200;
         const options = fetchHelper.makeOptions("GET", true);
-        fetch(URL +abc, options)
-        // fetch(URLL + "api/demoall", options)
+        // fetch(URL +origin+"/"+destination+"/"+date+"/"+passengers, options)
+        fetch(URL +origin+"/"+date+"/"+passengers, options)
         // fetch("http://airline-plaul.rhcloud.com/api/flightinfo/CPH/BCN/2017-05-31T00:00:00.000Z/4")
             .then((res) => {
                 if (res.status > 210 || !res.ok) {
