@@ -195,6 +195,6 @@ export function getAirports() {
         { abbr: 'LAX', name: 'Los Angeles (LAX), California, USA'},
         { abbr: 'CPH', name: 'Copenhagen, Kastrup (CPH), Denmark'},
         { abbr: 'LHR', name: 'London, Heathrow (LHR), Great Britain'},
-        { abbr: 'LHR', name: 'London, Heathrow (LHR), Great Britain'}
+
     ]
 }

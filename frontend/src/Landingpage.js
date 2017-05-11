@@ -15,8 +15,19 @@ class Landingpage extends React.Component {
 
     handleSelect(evt) {
     // what am I suppose to write in there to get the value?
-    console.log(evt)
+    console.log(evt + 'Hi!')
+        this.setState.dropReturnType('Hello!')
+
 }
+
+    handleChange(e){
+    console.log(e + 'Hello from here!');
+
+}
+
+    handleChange2(e){
+        this.setState({DropdownButtonValue:e.target.value});
+    }
 
 //Christian test stuff, ignore nad delete when done
     handleClick(event) {
@@ -25,11 +36,14 @@ class Landingpage extends React.Component {
         console.log(el)
     }
 
+//Multiple of same type of this.state: Only 1 will work correctly! Need some more unique id's?
     constructor() {
         super();
         {facade.getFlights()};//fetches data
         this.state = {valueFrom: ''};
         this.state = {valueTo: ''};
+        this.state = {dropPassAmount: 'Passengers'};
+        this.state = {dropReturnType: "Return Type"};
     }
 
 
@@ -108,7 +122,7 @@ class Landingpage extends React.Component {
 
                         {/*Dropdown element with number/amount of Passengers */}
                         <NavItem eventKey={5}>
-                            <DropdownButton title="Passengers" onSelect={function(evt){console.log(evt)}} >
+                            <DropdownButton id="dropPass" title={this.state.dropPassAmount} onSelect={function(evt){console.log(evt)}} >
                                 <MenuItem eventKey="1">1</MenuItem>
                                 <MenuItem eventKey="2">2</MenuItem>
                                 <MenuItem eventKey="3">3</MenuItem>
@@ -122,7 +136,9 @@ class Landingpage extends React.Component {
 
                         {/*Dropdown element with selection of ticket type*/}
                         <NavItem eventKey={6}>
-                        <DropdownButton title="Return type" onSelect={function(evt){console.log(evt)}}>
+
+                        <DropdownButton id="dropType" title={this.state.dropReturnType} onSelect={this.handleChange}>
+
                         <MenuItem eventKey="Single">Single</MenuItem>
                         <MenuItem eventKey="Return">Return</MenuItem>
                         </DropdownButton>
@@ -135,6 +151,13 @@ class Landingpage extends React.Component {
 
                     </Nav>
                 </Navbar>
+                <select
+                        value={this.state.selectValue}
+                        onChange={this.handleChange}>
+                    <option value="Orange">Orange</option>
+                    <option value="Radish">Radish</option>
+                    <option value="Cherry">Cherry</option>
+                </select>
 
 
 
