@@ -100,7 +100,7 @@ extractTime = (evt) => {
                         <NavItem eventKey={1} href="#">
                             {/*Autocomplete for 'From Destination'*/}
                             <label htmlFor="airports-autocomplete-from">From </label>
-                            <input type="text" id="from" placeholder="Departure airport code"></input>
+                            <input type="text" id="from" placeholder="From (IATA)" size="10" maxLength="3"></input>
 
                             {/*<Autocomplete*/}
                                 {/*value={this.state.valueFrom}*/}
@@ -134,7 +134,7 @@ extractTime = (evt) => {
                         <NavItem eventKey={2} href="#">
                             {/*Autocomplete for 'To Destination'*/}
                             <label htmlFor="airports-autocomplete-to">To </label>
-                            <input type="text" id="to" placeholder="Arrival airport code"></input>
+                            <input type="text" id="to" placeholder="To (IATA)" size="10" maxLength="3"></input>
                             {/*<Autocomplete*/}
                                 {/*value={this.state.valueTo}*/}
                                 {/*inputProps={{ name: 'US state', id: 'airports-autocomplete-to' }}*/}
@@ -159,26 +159,31 @@ extractTime = (evt) => {
 
                     {/*Input box for 'Departure Date'*/}
                     <NavItem eventKey={3} href="#">
-                        <label htmlFor="airports-autocomplete-from">Outward Date</label>
-                        <input type="text" id="dateOut" placeholder="YYYY-MM-DD"></input>
+                        <label htmlFor="airports-autocomplete-from">Date Out</label>
+                        <input type="text" id="dateOut" placeholder="YYYY-MM-DD" size="12" maxLength="10"></input>
                     </NavItem>
 
                     {/*Input box for 'Arrival Date'*/}
                     <NavItem eventKey={4} href="#">
-                        <label htmlFor="airports-autocomplete-from">Return Date </label>
-                        <input type="text" id="dateReturn" placeholder="YYYY-MM-DD"></input>
+                        <label htmlFor="airports-autocomplete-from">Date Return</label>
+                        <input type="text" id="dateReturn" placeholder="YYYY-MM-DD" size="12" maxLength="10"></input>
                     </NavItem>
 
-                        <label htmlFor="airports-autocomplete-from">Passengers</label>
+                    <NavItem eventKey={5} href="#">
+                        <label htmlFor="airports-autocomplete-from">People</label>
                         <select id="passengers"
                             value={this.state.selectValue}
                             onChange={this.handleChange}>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
                         </select>
+                    </NavItem>
 
-
+                    <NavItem eventKey={6} href="#">
                         <label htmlFor="airports-autocomplete-from">Travel Type</label>
                         <select id="travelType"
                                 value={this.state.selectValue}
@@ -186,7 +191,7 @@ extractTime = (evt) => {
                             <option value="Return">Return</option>
                             <option value="One-way">One-way</option>
                         </select>
-
+                    </NavItem>
                         {/*Dropdown element with Calendar for 'Departure Date' */}
                         {/*<NavDropdown eventKey={3} title="From 'Depature Date'" id="basic-nav-dropdown">*/}
                             {/*<index>*/}
@@ -203,48 +208,38 @@ extractTime = (evt) => {
                         {/*</NavDropdown>*/}
 
                         {/*Dropdown element with number/amount of Passengers */}
-                        <NavItem eventKey={5}>
-                            <DropdownButton id="dropPass" title={this.state.dropPassAmount} onSelect={function(evt){console.log(evt)}} >
-                                <MenuItem eventKey="1">1</MenuItem>
-                                <MenuItem eventKey="2">2</MenuItem>
-                                <MenuItem eventKey="3">3</MenuItem>
-                                <MenuItem eventKey="4">4</MenuItem>
-                                <MenuItem eventKey="5">5</MenuItem>
-                                <MenuItem eventKey="6">6</MenuItem>
-                                <MenuItem eventKey="7">7</MenuItem>
-                                <MenuItem eventKey="8">8</MenuItem>
-                            </DropdownButton>
-                    </NavItem >
+
+                        {/*<NavItem eventKey={5}>*/}
+                            {/*<DropdownButton id="dropPass" title={this.state.dropPassAmount} onSelect={function(evt){console.log(evt)}} >*/}
+                                {/*<MenuItem eventKey="1">1</MenuItem>*/}
+                                {/*<MenuItem eventKey="2">2</MenuItem>*/}
+                                {/*<MenuItem eventKey="3">3</MenuItem>*/}
+                                {/*<MenuItem eventKey="4">4</MenuItem>*/}
+                                {/*<MenuItem eventKey="5">5</MenuItem>*/}
+                                {/*<MenuItem eventKey="6">6</MenuItem>*/}
+                                {/*<MenuItem eventKey="7">7</MenuItem>*/}
+                                {/*<MenuItem eventKey="8">8</MenuItem>*/}
+                            {/*</DropdownButton>*/}
+                        {/*</NavItem >*/}
 
                         {/*Dropdown element with selection of ticket type*/}
-                        <NavItem eventKey={6}>
-
-                        <DropdownButton id="dropType" title={this.state.dropReturnType} onSelect={this.handleChange}>
-
-                        <MenuItem eventKey="Single">Single</MenuItem>
-                        <MenuItem eventKey="Return">Return</MenuItem>
-                        </DropdownButton>
-                        </NavItem >
+                        {/*<NavItem eventKey={6}>*/}
+                            {/*<DropdownButton id="dropType" title={this.state.dropReturnType} onSelect={this.handleChange}>*/}
+                                {/*<MenuItem eventKey="Single">Single</MenuItem>*/}
+                                {/*<MenuItem eventKey="Return">Return</MenuItem>*/}
+                            {/*</DropdownButton>*/}
+                        {/*</NavItem >*/}
 
                         {/*Search button*/}
                         <NavItem eventKey={7}>
-                            {/*<Link to="/searchresults"><Button bsStyle="warning">Search</Button></Link>*/}
                             <Link to="/searchresults"><Button bsStyle="warning" onClick={this.searchButtonAction}>Search</Button></Link>
-                            {/*<Button bsStyle="warning" onClick={facade.getFlights(this.state.origin, destination, date, passengers)}>Search</Button>*/}
-
-
-
-
-
-                            {/*{facade.getFlights(origin, destination, date, passengers)}/!*fetches data*!/*/}
-                    </NavItem >
-
+                        </NavItem >
                     </Nav>
                 </Navbar>
 
 
-                <p>{this.state.valueTo}</p>
-
+                {/*Test to print to screen the value stored in state:*/}
+                {/*<p>{this.state.valueTo}</p>*/}
 
                 {/*Displays/renders Searchresults below the page */}
                 {this.props.children}
