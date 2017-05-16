@@ -50,9 +50,8 @@ public class Flight {
         //Make a new airline object, with the airline object returned from the CAG.
         Airline airline = cag.generateFlights(from, date, tickets);
         
-        ArrayList<Airline> airlines = new ArrayList();
-        airlines.add(airline);
-        return gson.toJson(airlines);
+    
+        return gson.toJson(airline);
         
     }
     
@@ -63,10 +62,8 @@ public class Flight {
         
         //Make a new airline object, with the airline object returned from the CAG.
         Airline airline = cag.generateFlights(from, to, date, tickets);
-        
-        ArrayList<Airline> airlines = new ArrayList();
-        airlines.add(airline);
-        return gson.toJson(airlines);
+       
+        return gson.toJson(airline);
         
     }
 
