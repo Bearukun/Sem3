@@ -5,6 +5,7 @@ import facade from './components/Facade'
 import {observer} from "mobx-react";
 import {observable, action, computed} from "mobx";
 import renderIf from 'render-if';
+
 import './css/App.css';
 
 @observer
@@ -33,10 +34,6 @@ class Searchresults extends React.Component {
             var minutes = min % 60;
             return (hours + "h " + minutes + "m");
         }
-
-
-
-
 
         let flightType = "return";
         const rowsOut = facade._airlines.map((airline) => {
@@ -77,7 +74,9 @@ class Searchresults extends React.Component {
                                                                     <Col xs={1} md={1}>
                                                                         <div><h5>{airline.airline}</h5></div>
                                                                         <br></br>
-                                                                        <h5>[Logo]</h5>
+                                                                        {/*<h5><a href="C:\Users\Martin\Desktop\Con Air Logo.jpg"/></h5>*/}
+                                                                        {/*{img src="C:\Users\Martin\Desktop\Con Air Logo.jpg"}*/}
+                                                                        <img src="C:\Users\Martin\Desktop\Con Air Logo copy.jpg"/>
                                                                     </Col>
                                                                     {/* Airport code, Departime & City details + Col settings*/}
                                                                     <Col xs={3} md={3}>
@@ -178,7 +177,7 @@ class Searchresults extends React.Component {
                                                                     <Col xs={3} md={3}>
 
                                                                         <div>
-                                                                            <h5>{flight.origin} {flight.date.substr(11, 5)}</h5>
+                                                                            <h5>{flight.destination} {flight.date.substr(11, 5)}</h5>
                                                                         </div>
                                                                         <br></br>
                                                                         <h5>[City]</h5>
@@ -194,7 +193,7 @@ class Searchresults extends React.Component {
                                                                     {/* Arrival Time, Airport Code details & City + Col settings*/}
                                                                     <Col xs={3} md={3}>
                                                                         <div><h5>[Arrival Time]
-                                                                            + {flight.destination}</h5></div>
+                                                                            + {flight.origin}</h5></div>
                                                                         <br></br>
                                                                         <h5>[City]</h5>
                                                                     </Col>
@@ -226,12 +225,14 @@ class Searchresults extends React.Component {
 
         return (
             <div>
-                <div className="panel-heading"><b>Outward</b></div>
+                <div className="panel-heading"><b>Outward on {this.props.dateOutt}</b></div>
                 {rowsOut}
 
-                <div className="panel-heading"><b>Return</b></div>
-                {renderIf(1 + 2 === 3)(
-                    rowsReturn
+                {renderIf(this.props.flightType === "Return")(
+                <div>
+                    <div className="panel-heading"><b>Return</b></div>
+                    {rowsReturn}
+                </div>
                 )}
 
                 <nav className="navbar navbar-inverse navbar-fixed-bottom">
