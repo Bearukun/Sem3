@@ -24,18 +24,19 @@ class Searchresults extends React.Component {
     handleClicksOutward = (myRadio) => {
        // alert(myRadio)
         this.setState({
-            "selectedOutward": Math.round(myRadio).toFixed(2),
+            "selectedOutward": myRadio,
         //     // "selectedRadios": this.state.bottomBarTotalPrice + parseFloat(this.state.selectedOutward+this.state.selectedReturn)
-            "selectedRadios": "Total Price: €" + (parseFloat(myRadio)+parseFloat(this.state.selectedReturn))
+            "selectedRadios": "Total Price: €" + (parseFloat(myRadio)+parseFloat(this.state.selectedReturn)).toFixed(2)
         //     // "selectedRadios": this.state.bottomBarTotalPrice + this.state.selectedOutward
         })
     }
 
     handleClicksReturn = (myRadioReturn) => {
         this.setState({
-            "selectedReturn":Math.round(myRadioReturn).toFixed(2),
+            // "selectedReturn":Math.round(myRadioReturn).toFixed(2),
+            "selectedReturn":myRadioReturn,
             // "selectedRadios": this.state.bottomBarTotalPrice + this.state.selectedReturn
-            "selectedRadios": "Total Price: €" + (parseFloat(this.state.selectedOutward)+parseFloat(myRadioReturn))
+            "selectedRadios": "Total Price: €" + (parseFloat(this.state.selectedOutward)+parseFloat(myRadioReturn)).toFixed(2)
 
         })
     }
@@ -68,7 +69,7 @@ class Searchresults extends React.Component {
                                                         <div className="panel panel-default">
                                                             {/* Panel Titel*/}
                                                             <div className="panel-body">
-                                                                <h5>€{Math.round(flight.totalPrice).toFixed(2)}</h5>
+                                                                <h5>€{flight.totalPrice.toFixed(2)}</h5>
                                                                 <br></br>
 
                                                             </div>
@@ -103,7 +104,7 @@ class Searchresults extends React.Component {
                                                                     {/* Flight Duration Details + Col settings*/}
                                                                     <Col xs={2} md={2}>
                                                                         <div>
-                                                                            <h5>{convertTravelTime(flight.travelTime)}</h5>
+                                                                            <h5>{convertTravelTime(flight.traveltime)}</h5>
                                                                         </div>
 
 
@@ -159,7 +160,7 @@ class Searchresults extends React.Component {
                                                         <div className="panel panel-default">
                                                             {/* Panel Titel*/}
                                                             <div className="panel-body">
-                                                                <h5>€{Math.round(flight.totalPrice).toFixed(2)}</h5>
+                                                                <h5>€{flight.totalPrice.toFixed(2)}</h5>
                                                                 <br></br>
                                                             </div>
                                                             <div className="panel-heading">Select
@@ -191,7 +192,7 @@ class Searchresults extends React.Component {
                                                                     {/* Flight Duration Details + Col settings*/}
                                                                     <Col xs={2} md={2}>
                                                                         <div>
-                                                                            <h5>{convertTravelTime(flight.travelTime)}</h5>
+                                                                            <h5>{convertTravelTime(flight.traveltime)}</h5>
                                                                         </div>
 
 
