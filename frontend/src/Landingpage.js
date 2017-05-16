@@ -17,12 +17,13 @@ class Landingpage extends React.Component {
         console.log(e.target.value);
     }
 
-    handleChange2(e){
+    handleChange2 = (e) => {
         console.log(e.target.value);
         // this.state.selectTravelType = e.target.value;
         this.setState({
             selectTravelType: e.target.value
         });
+        // alert("changed");
         // console.log(this.state.selectTravelType);
 
     }
@@ -71,7 +72,7 @@ extractTime = (evt) => {
             abbr: 'alksdka',
             dateFrom: '2017-05-04',
             dateOut: '2017-05-09',
-            selectTravelType: 'One-way'
+            selectTravelType: 'Return'
         };
 
     }
@@ -114,7 +115,7 @@ extractTime = (evt) => {
                                 {/*sortItems={sortAirports}*/}
                                 {/*onChange={(event, valueFrom) => { this.setState({*/}
                                     {/*valueFrom: valueFrom,*/}
-                                    {/*abbr: abbr*/}
+                                    {/*abbr: ""*/}
 
                                 {/*}) }}*/}
                                 {/*onSelect={valueFrom => this.setState({*/}
@@ -242,13 +243,11 @@ extractTime = (evt) => {
                 {/*<p>{this.state.valueTo}</p>*/}
 
                 {/*Displays/renders Searchresults below the page */}
-                {this.props.children}
+                {/*{this.props.children}*/}
+                {React.cloneElement(this.props.children, {flightType: this.state.selectTravelType}, {dateOutt: "abc"})}
             </div>
-
-
         )
     }
-
 }
 
 export default Landingpage

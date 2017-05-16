@@ -19,7 +19,8 @@ render((
 
     <Router history={hashHistory}>
         <Route path="/" component={Landingpage}>
-            <Route path="/searchresults" component={Searchresults}/>
+            {/*<Route path="/searchresults" component={Searchresults}/>*/}
+            <Route path="/searchresults" component={Searchresults} myprop="Hello"/>
             <Route path="*" component={Error}/>
         </Route>
         <Route path="*" component={Error}/>
