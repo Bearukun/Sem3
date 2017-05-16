@@ -16,7 +16,7 @@ public class Flight implements Serializable{
     @Expose
     public Number totalPrice; //In euro
     @Expose
-    public int travelTime; //In minutes
+    public int traveltime; //In minutes
     @Expose
     public String origin; //IATA-Code eg. "CPH"
     @Expose    
@@ -65,12 +65,12 @@ public class Flight implements Serializable{
         this.totalPrice = totalPrice;
     }
 
-    public int getTravelTime() {
-        return travelTime;
+    public int getTraveltime() {
+        return traveltime;
     }
 
-    public void setTravelTime(int travelTime) {
-        this.travelTime = travelTime;
+    public void setTraveltime(int travelTime) {
+        this.traveltime = traveltime;
     }
 
     public String getOrigin() {

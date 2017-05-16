@@ -52,10 +52,10 @@ public class ConAirGenerator {
             flight.numberOfSeats = seats;
 
             //Meh way calculate a travel time but meh
-            flight.travelTime = rng.nextInt(720) + 1;
+            flight.traveltime = rng.nextInt(720) + 1;
 
             //Now let's calculate the price in another meh way
-            flight.totalPrice = seats * (flight.travelTime * 0.6);
+            flight.totalPrice = seats * (flight.traveltime * 0.6);
 
             flight.origin = from;
 
@@ -103,10 +103,10 @@ public class ConAirGenerator {
             flight.numberOfSeats = seats;
 
             //Meh way calculate a travel time but meh
-            flight.travelTime = rng.nextInt(720) + 1;
+            flight.traveltime = rng.nextInt(720) + 1;
 
             //Now let's calculate the price in another meh way
-            flight.totalPrice = seats * (flight.travelTime * 0.6);
+            flight.totalPrice = seats * (flight.traveltime * 0.6);
 
             flight.origin = from;
 
