@@ -14,17 +14,31 @@ class Searchresults extends React.Component {
     constructor(){
         super();
         this.state = {
-            selectedRadio: "Total Price:",
+            selectedOutward: 0,
+            selectedReturn: 0,
+            selectedRadios: "Total Price:",
             bottomBarTotalPrice: "Total Price: €"
         };
     }
 
-    handleClicks = (myRadio) =>{
+    handleClicksOutward = (myRadio) => {
+       // alert(myRadio)
         this.setState({
-            "selectedRadio": this.state.bottomBarTotalPrice+Math.round(myRadio).toFixed(2)
+            "selectedOutward": Math.round(myRadio).toFixed(2),
+        //     // "selectedRadios": this.state.bottomBarTotalPrice + parseFloat(this.state.selectedOutward+this.state.selectedReturn)
+            "selectedRadios": "Total Price: €" + (parseFloat(myRadio)+parseFloat(this.state.selectedReturn))
+        //     // "selectedRadios": this.state.bottomBarTotalPrice + this.state.selectedOutward
         })
     }
 
+    handleClicksReturn = (myRadioReturn) => {
+        this.setState({
+            "selectedReturn":Math.round(myRadioReturn).toFixed(2),
+            // "selectedRadios": this.state.bottomBarTotalPrice + this.state.selectedReturn
+            "selectedRadios": "Total Price: €" + (parseFloat(this.state.selectedOutward)+parseFloat(myRadioReturn))
+
+        })
+    }
 
     render() {
         let selectedRadio = 0;
@@ -35,7 +49,6 @@ class Searchresults extends React.Component {
             return (hours + "h " + minutes + "m");
         }
 
-        let flightType = "return";
         const rowsOut = facade._airlines.map((airline) => {
             return (
                 airline.flights.map(function (flight, index) {
@@ -60,7 +73,7 @@ class Searchresults extends React.Component {
 
                                                             </div>
                                                             <div className="panel-heading">Select
-                                                                <input type="radio" name="myRadios" value={index + 1} onClick={() => {this.handleClicks(flight.totalPrice)}} />
+                                                                <input type="radio" name="myRadios" value={index + 1} onClick={() => {this.handleClicksOutward(flight.totalPrice)}} />
                                                             </div>
                                                         </div>
                                                     </Col>
@@ -148,17 +161,10 @@ class Searchresults extends React.Component {
                                                             <div className="panel-body">
                                                                 <h5>€{Math.round(flight.totalPrice).toFixed(2)}</h5>
                                                                 <br></br>
-
                                                             </div>
                                                             <div className="panel-heading">Select
-
-                                                                {/*<input type="radio" name="myRadios" onClick={() => { this.handleClicks(this) }} value={index+1} />*/}
-                                                                <input type="radio" name="myRadios" onClick={() => {
-                                                                    this.handleClicks(index + 1)
-                                                                }} value={index + 1}/>
-
+                                                                <input type="radio" name="myRadiosReturn" value={index + 1} onClick={() => {this.handleClicksReturn(flight.totalPrice)}} />
                                                             </div>
-
                                                         </div>
                                                     </Col>
                                                     {/* Panel <Col>, used for arranging the details inside the panel in rows/cols */}
@@ -217,7 +223,7 @@ class Searchresults extends React.Component {
                             </Grid>
                         </div>
                     )
-                })
+                },this)
             )
             // });
             // });
@@ -225,9 +231,10 @@ class Searchresults extends React.Component {
 
         return (
             <div>
-                <div className="panel-heading"><b>Outward on {this.props.dateOutt}</b></div>
+                <div className="panel-heading"><b>Outward</b></div>
                 {rowsOut}
 
+                {/*{renderIf(1+2 === 3)(*/}
                 {renderIf(this.props.flightType === "Return")(
                 <div>
                     <div className="panel-heading"><b>Return</b></div>
@@ -241,7 +248,7 @@ class Searchresults extends React.Component {
                             {/*<a className="navbar-brand">CA2 - Group 13</a>*/}
                         </div>
                         <ul className="nav navbar-nav">
-                            <li><a href="https://github.com/Bearukun/CA2" target="_blank">{this.state.selectedRadio}</a></li>
+                            <li><a href="https://github.com/Bearukun/CA2" target="_blank">{this.state.selectedRadios}</a></li>
                             <li><button className="Btn">Book</button></li>
                         </ul>
                     </div>

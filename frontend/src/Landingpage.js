@@ -244,7 +244,8 @@ extractTime = (evt) => {
 
                 {/*Displays/renders Searchresults below the page */}
                 {/*{this.props.children}*/}
-                {React.cloneElement(this.props.children, {flightType: this.state.selectTravelType}, {dateOutt: "abc"})}
+                {/*{React.cloneElement(this.props.children, this)}*/}
+                {React.cloneElement(this.props.children, {flightType: this.state.selectTravelType})}
             </div>
         )
     }

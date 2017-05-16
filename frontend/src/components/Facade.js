@@ -16,7 +16,7 @@ class Facade {
                     "date": "",
                     "numberOfSeats": 0,
                     "totalPrice": 1,
-                    "travelTime": 2,
+                    "traveltime": 2,
                     "origin": "",
                     "destination": ""
                 }]
