@@ -41,6 +41,10 @@ class Searchresults extends React.Component {
         })
     }
 
+    bookFlights = () => {
+        alert("It works!!!")
+    }
+
     render() {
         let selectedRadio = 0;
 
@@ -249,8 +253,8 @@ class Searchresults extends React.Component {
                             {/*<a className="navbar-brand">CA2 - Group 13</a>*/}
                         </div>
                         <ul className="nav navbar-nav">
-                            <li><a href="https://github.com/Bearukun/CA2" target="_blank">{this.state.selectedRadios}</a></li>
-                            <li><button className="Btn">Book</button></li>
+                            // <li><a href onclick="return false;">{this.state.selectedRadios}</a></li>
+                            <li><button className="Btn" onClick={this.bookFlights}>Book</button></li>
                         </ul>
                     </div>
                 </nav>
