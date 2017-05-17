@@ -24,7 +24,7 @@ class Searchresults extends React.Component {
                 {
                     flightId: "",
                     flightNumber: "",
-                    date: "Outward date/time: ",
+                    date: "Date/time: ",
                     numberOfSeats: 0,
                     totalPrice: 1,
                     traveltime: 2,
@@ -35,7 +35,7 @@ class Searchresults extends React.Component {
                 {
                     flightId: "",
                     flightNumber: "",
-                    date: "Return date/time: ",
+                    date: "Date/time: ",
                     numberOfSeats: 0,
                     totalPrice: 1,
                     traveltime: 2,
@@ -52,7 +52,7 @@ class Searchresults extends React.Component {
             flightOut: {
                 flightId: "",
                 flightNumber: "",
-                date: "Outward date/time: "+flight.date.substr(0, 10)+" at "+flight.date.substr(11, 5),
+                date: "Date/time: "+flight.date.substr(0, 10)+" at "+flight.date.substr(11, 5),
                 numberOfSeats: 2,
                 totalPrice: 1,
                 traveltime: 2,
@@ -70,12 +70,12 @@ class Searchresults extends React.Component {
             flightReturn: {
                 flightId: "",
                 flightNumber: "",
-                date: "Return date/time: "+flight.date.substr(0, 10)+" at "+flight.date.substr(11, 5),
+                date: "Date/time: "+flight.date.substr(0, 10)+" at "+flight.date.substr(11, 5),
                 numberOfSeats: 2,
                 totalPrice: 1,
                 traveltime: 2,
-                origin: "Origin: "+flight.origin,
-                destination: "Destination: "+flight.destination
+                origin: "Origin: "+flight.destination,
+                destination: "Destination: "+flight.origin
             },
             "airlineReturn": "Airline: "+airline.airline
 
@@ -278,47 +278,47 @@ class Searchresults extends React.Component {
         });
 
         return (
-            <div>
-                <div className="panel-heading"><b>Outward</b></div>
-                {rowsOut}
-
-                {/*{renderIf(1+2 === 3)(*/}
-                {renderIf(this.props.flightType === "Return")(
                 <div>
-                    <div className="panel-heading"><b>Return</b></div>
-                    {rowsReturn}
-                </div>
-                )}
+                    <div className="panel-heading"><b>Outward</b></div>
+                    {rowsOut}
 
-                <nav className="navbar navbar-inverse navbar-fixed-bottom">
-                    <div className="container-fluid">
-                        <div className="navbar-header"><a className="navbar-brand">Outward:</a></div>
-                        <ul className="nav navbar-nav">
-                            <li><a href onclick="return false;">{this.state.flightOut.date.toString()}</a></li>
-                            <li><a href onclick="return false;">{this.state.flightOut.origin.toString()}</a></li>
-                            <li><a href onclick="return false;">{this.state.flightOut.destination.toString()}</a></li>
-                            <li><a href onclick="return false;">{this.state.airlineOut.toString()}</a></li>
-                            <li><a href onclick="return false;">{this.state.selectedRadios}</a></li>
-                        </ul>
-                    </div>
+                    {/*{renderIf(1+2 === 3)(*/}
                     {renderIf(this.props.flightType === "Return")(
-                        <div>
-                        <div className="navbar-header"><a className="navbar-brand">Return:</a></div>
-                        <ul className="nav navbar-nav">
-                            <li><a href onclick="return false;">{this.state.flightReturn.date.toString()}</a></li>
-                            <li><a href onclick="return false;">{this.state.flightReturn.origin.toString()}</a></li>
-                            <li><a href onclick="return false;">{this.state.flightReturn.destination.toString()}</a></li>
-                            <li><a href onclick="return false;">{this.state.airlineReturn.toString()}</a></li>
-                        </ul>
+                    <div>
+                        <div className="panel-heading"><b>Return</b></div>
+                        {rowsReturn}
+                    </div>
+                    )}
+
+                    <nav className="navbar navbar-inverse navbar-fixed-bottom">
+                        <div className="container-fluid">
+                            <div className="navbar-header"><a className="navbar-brand">Outward:</a></div>
+                            <ul className="nav navbar-nav">
+                                <li><a href onclick="return false;">{this.state.flightOut.date.toString()}</a></li>
+                                <li><a href onclick="return false;">{this.state.flightOut.origin.toString()}</a></li>
+                                <li><a href onclick="return false;">{this.state.flightOut.destination.toString()}</a></li>
+                                <li><a href onclick="return false;">{this.state.airlineOut.toString()}</a></li>
+                            </ul>
                         </div>
+                        {renderIf(this.props.flightType === "Return")(
+                            <div>
+                            <div className="navbar-header"><a className="navbar-brand">Return:</a></div>
+                            <ul className="nav navbar-nav">
+                                <li><a href onclick="return false;">{this.state.flightReturn.date.toString()}</a></li>
+                                <li><a href onclick="return false;">{this.state.flightReturn.origin.toString()}</a></li>
+                                <li><a href onclick="return false;">{this.state.flightReturn.destination.toString()}</a></li>
+                                <li><a href onclick="return false;">{this.state.airlineReturn.toString()}</a></li>
+                            </ul>
+                            </div>
                         )}
                         <div>
-                        <button className="Btn" onClick={this.bookFlights}>Book</button>
-                    </div>
-                </nav>
-
-
-            </div>
+                            <ul className="nav navbar-nav" alignItems="flex-end">
+                                <li><a href onclick="return false;">{this.state.selectedRadios}</a></li>
+                                <li><button className="Btn" onClick={this.bookFlights}>Book</button></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
         );
     }
 }
