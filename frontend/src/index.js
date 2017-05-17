@@ -3,6 +3,8 @@ import {render} from 'react-dom';
 import App from './App';
 import Ceotest from './Ceotest'
 import Stest from './Stest';
+import bookingdetails from './BookingDetails'
+import bookingconfirmation from './BookingConfirmation'
 import Error from './Error'
 import Landingpage from './Landingpage'
 import Searchresults from './Searchresults'
@@ -20,6 +22,8 @@ render((
     <Router history={hashHistory}>
         <Route path="/" component={Landingpage}>
             <IndexRoute component={Searchresults} />
+            <Route path="/bookingdetails" component={bookingdetails}/>
+            <Route path="/bookingconfirmation" component={bookingconfirmation}/>
             {/*<Route path="/searchresults" component={Searchresults}/>*/}
             <Route path="/searchresults" component={Searchresults} flightType="Return"/>
             <Route path="*" component={Error}/>

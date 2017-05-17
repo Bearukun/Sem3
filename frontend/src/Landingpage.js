@@ -236,6 +236,7 @@ extractTime = (evt) => {
                             <Link to="/searchresults"><Button bsStyle="warning" onClick={this.searchButtonAction}>Search</Button></Link>
                         </NavItem >
                     </Nav>
+
                 </Navbar>
 
 
@@ -245,6 +246,7 @@ extractTime = (evt) => {
                 {/*Displays/renders Searchresults below the page */}
                 {/*{this.props.children}*/}
                 {/*{React.cloneElement(this.props.children, this)}*/}
+
                 {React.cloneElement(this.props.children, {flightType: this.state.selectTravelType})}
             </div>
         )
