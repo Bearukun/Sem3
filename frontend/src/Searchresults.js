@@ -17,26 +17,67 @@ class Searchresults extends React.Component {
             selectedOutward: 0,
             selectedReturn: 0,
             selectedRadios: "Total Price:",
-            bottomBarTotalPrice: "Total Price: €"
+            bottomBarTotalPrice: "Total Price: €",
+            airlineOut: "Airline: ",
+            airlineReturn: "Airline: ",
+            flightOut:
+                {
+                    flightId: "",
+                    flightNumber: "",
+                    date: "Outward date/time: ",
+                    numberOfSeats: 0,
+                    totalPrice: 1,
+                    traveltime: 2,
+                    origin: "Origin: ",
+                    destination: "Destination: "
+                },
+            flightReturn:
+                {
+                    flightId: "",
+                    flightNumber: "",
+                    date: "Return date/time: ",
+                    numberOfSeats: 0,
+                    totalPrice: 1,
+                    traveltime: 2,
+                    origin: "Origin: ",
+                    destination: "Destination: "
+                }
         };
     }
 
-    handleClicksOutward = (myRadio) => {
-       // alert(myRadio)
+    handleClicksOutward = (airline, flight) => {
         this.setState({
-            "selectedOutward": myRadio,
-        //     // "selectedRadios": this.state.bottomBarTotalPrice + parseFloat(this.state.selectedOutward+this.state.selectedReturn)
-            "selectedRadios": "Total Price: €" + (parseFloat(myRadio)+parseFloat(this.state.selectedReturn)).toFixed(2)
-        //     // "selectedRadios": this.state.bottomBarTotalPrice + this.state.selectedOutward
+            "selectedOutward": flight.totalPrice,
+            "selectedRadios": "Total Price: €" + (parseFloat(flight.totalPrice)+parseFloat(this.state.selectedReturn)).toFixed(2),
+            flightOut: {
+                flightId: "",
+                flightNumber: "",
+                date: "Outward date/time: "+flight.date.substr(0, 10)+" at "+flight.date.substr(11, 5),
+                numberOfSeats: 2,
+                totalPrice: 1,
+                traveltime: 2,
+                origin: "Origin: "+flight.origin,
+                destination: "Destination: "+flight.destination
+            },
+            "airlineOut": "Airline: "+airline.airline
         })
     }
 
-    handleClicksReturn = (myRadioReturn) => {
+    handleClicksReturn = (airline, flight) => {
         this.setState({
-            // "selectedReturn":Math.round(myRadioReturn).toFixed(2),
-            "selectedReturn":myRadioReturn,
-            // "selectedRadios": this.state.bottomBarTotalPrice + this.state.selectedReturn
-            "selectedRadios": "Total Price: €" + (parseFloat(this.state.selectedOutward)+parseFloat(myRadioReturn)).toFixed(2)
+            "selectedReturn": flight.totalPrice,
+            "selectedRadios": "Total Price: €" + (parseFloat(this.state.selectedOutward)+parseFloat(flight.totalPrice)).toFixed(2),
+            flightReturn: {
+                flightId: "",
+                flightNumber: "",
+                date: "Return date/time: "+flight.date.substr(0, 10)+" at "+flight.date.substr(11, 5),
+                numberOfSeats: 2,
+                totalPrice: 1,
+                traveltime: 2,
+                origin: "Origin: "+flight.origin,
+                destination: "Destination: "+flight.destination
+            },
+            "airlineReturn": "Airline: "+airline.airline
 
         })
     }
@@ -78,7 +119,7 @@ class Searchresults extends React.Component {
 
                                                             </div>
                                                             <div className="panel-heading">Select
-                                                                <input type="radio" name="myRadios" value={index + 1} onClick={() => {this.handleClicksOutward(flight.totalPrice)}} />
+                                                                <input type="radio" name="myRadios" value={index + 1} onClick={() => {this.handleClicksOutward(airline, flight)}} />
                                                             </div>
                                                         </div>
                                                     </Col>
@@ -94,7 +135,9 @@ class Searchresults extends React.Component {
                                                                         <br></br>
                                                                         {/*<h5><a href="C:\Users\Martin\Desktop\Con Air Logo.jpg"/></h5>*/}
                                                                         {/*{img src="C:\Users\Martin\Desktop\Con Air Logo.jpg"}*/}
-                                                                        <img src="C:\Users\Martin\Desktop\Con Air Logo copy.jpg"/>
+                                                                        {/*<img src={"#/src/images/conair.jpg"}/>*/}
+                                                                        <img src={"C:/Users/Martin/Desktop/Sem3/Sem3/frontend/src/images/conair.jpg"}/>
+
                                                                     </Col>
                                                                     {/* Airport code, Departime & City details + Col settings*/}
                                                                     <Col xs={3} md={3}>
@@ -168,7 +211,7 @@ class Searchresults extends React.Component {
                                                                 <br></br>
                                                             </div>
                                                             <div className="panel-heading">Select
-                                                                <input type="radio" name="myRadiosReturn" value={index + 1} onClick={() => {this.handleClicksReturn(flight.totalPrice)}} />
+                                                                <input type="radio" name="myRadiosReturn" value={index + 1} onClick={() => {this.handleClicksReturn(airline, flight)}} />
                                                             </div>
                                                         </div>
                                                     </Col>
@@ -249,13 +292,28 @@ class Searchresults extends React.Component {
 
                 <nav className="navbar navbar-inverse navbar-fixed-bottom">
                     <div className="container-fluid">
-                        <div className="navbar-header">
-                            {/*<a className="navbar-brand">CA2 - Group 13</a>*/}
-                        </div>
+                        <div className="navbar-header"><a className="navbar-brand">Outward:</a></div>
                         <ul className="nav navbar-nav">
-                            // <li><a href onclick="return false;">{this.state.selectedRadios}</a></li>
-                            <li><button className="Btn" onClick={this.bookFlights}>Book</button></li>
+                            <li><a href onclick="return false;">{this.state.flightOut.date.toString()}</a></li>
+                            <li><a href onclick="return false;">{this.state.flightOut.origin.toString()}</a></li>
+                            <li><a href onclick="return false;">{this.state.flightOut.destination.toString()}</a></li>
+                            <li><a href onclick="return false;">{this.state.airlineOut.toString()}</a></li>
+                            <li><a href onclick="return false;">{this.state.selectedRadios}</a></li>
                         </ul>
+                    </div>
+                    {renderIf(this.props.flightType === "Return")(
+                        <div>
+                        <div className="navbar-header"><a className="navbar-brand">Return:</a></div>
+                        <ul className="nav navbar-nav">
+                            <li><a href onclick="return false;">{this.state.flightReturn.date.toString()}</a></li>
+                            <li><a href onclick="return false;">{this.state.flightReturn.origin.toString()}</a></li>
+                            <li><a href onclick="return false;">{this.state.flightReturn.destination.toString()}</a></li>
+                            <li><a href onclick="return false;">{this.state.airlineReturn.toString()}</a></li>
+                        </ul>
+                        </div>
+                        )}
+                        <div>
+                        <button className="Btn" onClick={this.bookFlights}>Book</button>
                     </div>
                 </nav>
 
