@@ -50,7 +50,7 @@ class Searchresults extends React.Component {
             "selectedOutward": flight.totalPrice,
             "selectedRadios": "Total Price: €" + (parseFloat(flight.totalPrice)+parseFloat(this.state.selectedReturn)).toFixed(2),
             flightOut: {
-                flightId: "",
+                flightId: flight.flightId,
                 flightNumber: "",
                 date: "Date/time: "+flight.date.substr(0, 10)+" at "+flight.date.substr(11, 5),
                 numberOfSeats: 2,
@@ -68,7 +68,7 @@ class Searchresults extends React.Component {
             "selectedReturn": flight.totalPrice,
             "selectedRadios": "Total Price: €" + (parseFloat(this.state.selectedOutward)+parseFloat(flight.totalPrice)).toFixed(2),
             flightReturn: {
-                flightId: "",
+                flightId: flight.flightId,
                 flightNumber: "",
                 date: "Date/time: "+flight.date.substr(0, 10)+" at "+flight.date.substr(11, 5),
                 numberOfSeats: 2,
@@ -83,7 +83,10 @@ class Searchresults extends React.Component {
     }
 
     bookFlights = () => {
-        facade.submitBooking("test data");
+        facade.submitBooking(this.state.flightOut.flightId, this.state.flightReturn.flightId);
+
+        // alert(facade._booking.origin);
+
         // alert("It works!!!")
     }
 
@@ -95,6 +98,12 @@ class Searchresults extends React.Component {
             var minutes = min % 60;
             return (hours + "h " + minutes + "m");
         }
+
+        const bookingDetails = facade._bookings.map((booking) => {
+            return (
+                console.log("abcde: "+booking.flightNumber)
+            );
+        });
 
         const rowsOut = facade._airlines.map((airline) => {
             return (
@@ -281,6 +290,7 @@ class Searchresults extends React.Component {
         return (
                 <div>
                     <div className="panel-heading"><b>Outward</b></div>
+                    {bookingDetails}
                     {rowsOut}
 
                     {/*{renderIf(1+2 === 3)(*/}

@@ -1,7 +1,7 @@
 import { observable, action, computed} from "mobx";
 import fetchHelper from "./fetchHelpers"
 const URL = "http://localhost:8084/seedMaven/api/flights/";
-const URL2 = "http://localhost:8084/seedMaven/api/flights/";
+const URL2 = "http://localhost:8084/seedMaven/api/reservation/";
 const abc = "CPH/2017-05-04/4";
 class Facade {
     @observable messageFromServer = "";
@@ -21,22 +21,22 @@ class Facade {
                 "destination": ""
             }]
     }];
-    @observable _booking = [{
-        "flightNumber": "COL2256",
-        "origin": "Copenhagen Kastrup(CPH)",
-        "destination": "Charles de Gaulle International(CDG)",
-        "date": "2016-04-06T10:00:00.000Z",
-        "flightTime": 120,
-        "numberOfSeats": 2,
-        "reserveeName": "Peter Hansen",
+    @observable _bookings = [{
+        "flightNumber": "",
+        "origin": "",
+        "destination": "",
+        "date": "",
+        "flightTime": 0,
+        "numberOfSeats": 0,
+        "reserveeName": "",
         "passengers": [
             {
-                "firstName": "Peter",
-                "lastName": "Peterson"
+                "firstName": "",
+                "lastName": ""
             },
             {
-                "firstName": "Jane",
-                "lastName": "Peterson"
+                "firstName": "",
+                "lastName": ""
             }
         ]
     }];
@@ -82,8 +82,9 @@ class Facade {
     }
 
     @action
-    submitBooking = (booking) => {
-        // console.log(booking);
+    submitBooking = (flightOutId, flightReturnId) => {
+        // console.log(flightOutId);
+        // alert("flightoutid"+flightOutId);
         // alert("Booking details: "+booking);
         this.errorMessage = "";
         this.messageFromServer = "";
@@ -96,7 +97,8 @@ class Facade {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                flightID: "CA123",
+                // flightID: flightOutId,
+                flightID: "123456789",
                 numberOfSeats: 2,
                 "reserveeName": "Peter Hansen",
                 "reservePhone":"12345678",
@@ -114,7 +116,8 @@ class Facade {
             })
         };
         // fetch(URL + "api/user/add", conf, options)
-        fetch(URL2, conf, options)
+        // fetch(URL2+flightOutId, conf, options)
+        fetch(URL2+"100", conf, options)
             .then((res) => {
                 if (res.status > 210 || !res.ok) {
                     errorCode = res.status;
@@ -127,7 +130,7 @@ class Facade {
                 }
                 else {
                     // alert(res(0).origin);
-                    this._booking.replace(res);
+                    this._bookings.replace(res);
                 }
             })).catch(err => {
             //This is the only way (I have found) to verify server is not running

@@ -69,7 +69,7 @@ public class Flight {
         Passenger p2 = new Passenger("c","d");
         passengers.add(p1);
         passengers.add(p2);
-        Booking b1 = new Booking("COL2256","Copenhagen Kastrup(CPH)","Charles de Gaulle International(CDG)",new Date(),120,2,"Peter Hansen",passengers);
+        Booking b1 = new Booking("COL2257","Copenhagen Kastrup(CPH)","Charles de Gaulle International(CDG)",new Date(),120,2,"Peter Hansen",passengers);
         bookings.add(b1);
         return gson.toJson(bookings);
     }
