@@ -9,35 +9,22 @@ class Facade {
             "airline": "",
             "slogan": "",
             "code": "",
-            "flights": [
-                {
-                    "flightId": "",
-                    "flightNumber": "",
-                    "date": "",
-                    "numberOfSeats": 0,
-                    "totalPrice": 1,
-                    "traveltime": 2,
-                    "origin": "",
-                    "destination": ""
-                }]
-        }];
-
-
-
-
-
-
-
+            "flights": [{
+                "flightId": "",
+                "flightNumber": "",
+                "date": "",
+                "numberOfSeats": 0,
+                "totalPrice": 1,
+                "traveltime": 2,
+                "origin": "",
+                "destination": ""
+            }]
+    }];
 
     @action
     setErrorMessage = (err) => {
     this.errorMessage = err;
     }
-
-    // @action
-    // getFlights = () => {
-    //     alert("Data fetched successfully");
-    // }
 
     @action
     getFlights = (origin, destination, date, passengers) => {
@@ -74,6 +61,52 @@ class Facade {
         })
     }
 
+    @action
+    submitBooking = (booking) => {
+        // console.log(booking);
+        alert("Booking details: "+booking);
+        // this.errorMessage = "";
+        // this.messageFromServer = "";
+        // let errorCode = 200;
+        // const options = fetchHelper.makeOptions("POST", true);
+        // var conf = {
+        //     method: 'post',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         title: book.title,
+        //         info: book.info,
+        //         moreInfo: book.moreInfo
+        //     })
+        // };
+        // fetch(URL + "api/user/add", conf, options)
+        //     .then((res) => {
+        //         if (res.status > 210 || !res.ok) {
+        //             errorCode = res.status;
+        //         }
+        //         return res.json();
+        //     })
+        //     .then(action((res) => {  //Note the action wrapper to allow for useStrict
+        //         if (errorCode !== 200) {
+        //             throw new Error(`${res.error.message} (${res.error.code})`);
+        //         }
+        //         else {
+        //             this._books.replace(res);
+        //             const addedBookTitle = res.title;
+        //             return addedBookTitle;
+        //         }
+        //     })).catch(err => {
+        //     //This is the only way (I have found) to verify server is not running
+        //     this.setErrorMessage(fetchHelper.addJustErrorMessage(err));
+        // })
+    }
+
+    // @action
+    // getFlights = () => {
+    //     alert("Data fetched successfully");
+    // }
 
     //
     // @computed
@@ -81,46 +114,7 @@ class Facade {
     //     return this._books;
     // }
     //
-    // @action
-    // addBook = (book) => {
-    //     // console.log(book.title);
-    //     this.errorMessage = "";
-    //     this.messageFromServer = "";
-    //     let errorCode = 200;
-    //     const options = fetchHelper.makeOptions("POST", true);
-    //     var conf = {
-    //         method: 'post',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             title: book.title,
-    //             info: book.info,
-    //             moreInfo: book.moreInfo
-    //         })
-    //     };
-    //     fetch(URL + "api/user/add", conf, options)
-    //         .then((res) => {
-    //             if (res.status > 210 || !res.ok) {
-    //                 errorCode = res.status;
-    //             }
-    //             return res.json();
-    //         })
-    //         .then(action((res) => {  //Note the action wrapper to allow for useStrict
-    //             if (errorCode !== 200) {
-    //                 throw new Error(`${res.error.message} (${res.error.code})`);
-    //             }
-    //             else {
-    //                 this._books.replace(res);
-    //                 const addedBookTitle = res.title;
-    //                 return addedBookTitle;
-    //             }
-    //         })).catch(err => {
-    //         //This is the only way (I have found) to verify server is not running
-    //         this.setErrorMessage(fetchHelper.addJustErrorMessage(err));
-    //     })
-    // }
+
     //
     // @action
     // editBook = (book)=> {

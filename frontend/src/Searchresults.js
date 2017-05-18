@@ -28,8 +28,8 @@ class Searchresults extends React.Component {
                     numberOfSeats: 0,
                     totalPrice: 1,
                     traveltime: 2,
-                    origin: "Origin: ",
-                    destination: "Destination: "
+                    origin: "From: ",
+                    destination: "To: "
                 },
             flightReturn:
                 {
@@ -39,8 +39,8 @@ class Searchresults extends React.Component {
                     numberOfSeats: 0,
                     totalPrice: 1,
                     traveltime: 2,
-                    origin: "Origin: ",
-                    destination: "Destination: "
+                    origin: "From: ",
+                    destination: "To: "
                 }
         };
     }
@@ -56,8 +56,8 @@ class Searchresults extends React.Component {
                 numberOfSeats: 2,
                 totalPrice: 1,
                 traveltime: 2,
-                origin: "Origin: "+flight.origin,
-                destination: "Destination: "+flight.destination
+                origin: "From: "+flight.origin,
+                destination: "To: "+flight.destination
             },
             "airlineOut": "Airline: "+airline.airline
         })
@@ -74,8 +74,8 @@ class Searchresults extends React.Component {
                 numberOfSeats: 2,
                 totalPrice: 1,
                 traveltime: 2,
-                origin: "Origin: "+flight.destination,
-                destination: "Destination: "+flight.origin
+                origin: "From: "+flight.destination,
+                destination: "To: "+flight.origin
             },
             "airlineReturn": "Airline: "+airline.airline
 
@@ -83,7 +83,8 @@ class Searchresults extends React.Component {
     }
 
     bookFlights = () => {
-        alert("It works!!!")
+        facade.submitBooking("test data");
+        // alert("It works!!!")
     }
 
     render() {
