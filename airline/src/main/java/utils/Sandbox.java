@@ -14,24 +14,30 @@ import java.util.TimeZone;
 public class Sandbox {
 
     public static void main(String[] args) {
-
-        Random rng = new Random();
-
-        System.out.println(rng.nextInt(99999999) + 99999999 + "w" + 00000);
-
-        System.out.println(getDepartureTime("2017-05-03"));
-
-        System.out.println(rng.nextInt(720) + 1);
         
-        String[] IataCodes = {"CPH", "JFK", "LHR", "AMS", "BCL"};
- 
-        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
-        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
-        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
-        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
-        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
-        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
+        String h = "2017-06-03T11:39:00.000Z";
+        System.out.println(h.split("T")[0]);
 
+//        Random rng = new Random();
+//
+//        System.out.println(rng.nextInt(99999999) + 99999999 + "w" + 00000);
+//
+//        System.out.println(getDepartureTime("2017-05-03"));
+//
+//        System.out.println(rng.nextInt(720) + 1);
+//        
+//        String[] IataCodes = {"CPH", "JFK", "LHR", "AMS", "BCL"};
+// 
+//        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
+//        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
+//        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
+//        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
+//        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
+//        System.out.println(IataCodes[rng.nextInt(IataCodes.length)]);
+
+            
+
+    
     }
 
     private static String getDepartureTime(String date) {

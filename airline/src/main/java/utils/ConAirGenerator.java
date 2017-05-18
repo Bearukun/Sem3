@@ -136,7 +136,7 @@ public class ConAirGenerator {
         }
 
         //Create new calendar object, and take the given date, with rng hour and min
-        Calendar calendar = new GregorianCalendar(intDate[0], intDate[1], intDate[2], rng.nextInt(24), rng.nextInt(60));
+        Calendar calendar = new GregorianCalendar(intDate[0], intDate[1]-1, intDate[2], rng.nextInt(24), rng.nextInt(60));
 
         //Make sure not to use the servers timezone, but UTC instead
         TimeZone timeZone = TimeZone.getTimeZone("UTC");
