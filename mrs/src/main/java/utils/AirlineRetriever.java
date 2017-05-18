@@ -29,7 +29,7 @@ public class AirlineRetriever {
         List<String> urls = new ArrayList<>();
         
         urls.add("https://46.101.255.231.xip.io/airline/api/flights");
-        urls.add("https://airline.skaarup.io/api/flights");
+//        urls.add("https://airline.skaarup.io/api/flights");
         
         return urls;
         

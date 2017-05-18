@@ -126,8 +126,8 @@ class Facade {
                     throw new Error(`${res.error.message} (${res.error.code})`);
                 }
                 else {
-                    alert(res);
-                    // this._booking.replace(res);
+                    // alert(res(0).origin);
+                    this._booking.replace(res);
                 }
             })).catch(err => {
             //This is the only way (I have found) to verify server is not running

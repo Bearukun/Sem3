@@ -3,11 +3,15 @@ package rest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Airline;
+import entity.Booking;
+import entity.Passenger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
@@ -56,5 +60,17 @@ public class Flight {
         return gson.toJson(airlines);
         
     }
-
+    
+    @POST
+    public String getBookingDetails(){
+        List<Booking> bookings = new ArrayList();
+        List<Passenger> passengers = new ArrayList();
+        Passenger p1 = new Passenger("a","b");
+        Passenger p2 = new Passenger("c","d");
+        passengers.add(p1);
+        passengers.add(p2);
+        Booking b1 = new Booking("COL2256","Copenhagen Kastrup(CPH)","Charles de Gaulle International(CDG)",new Date(),120,2,"Peter Hansen",passengers);
+        bookings.add(b1);
+        return gson.toJson(bookings);
+    }
 }
