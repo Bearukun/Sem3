@@ -4,11 +4,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import entity.Airline;
 import entity.Booking;
+import entity.Log;
 import entity.Passenger;
+import facades.MRSFacade;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -24,12 +29,16 @@ public class Flight {
     private static GsonBuilder builder;
     private static AirlineRetriever r = new AirlineRetriever();
     private static List<String> urls = new ArrayList<>(r.getUrls());
-
+    private static MRSFacade mrsf;
+    private static EntityManagerFactory emf;    
+    
     public Flight() {
         
         builder = new GsonBuilder();
         builder.setPrettyPrinting();
         gson = builder.create();
+        emf = Persistence.createEntityManagerFactory("pumrs");
+        mrsf = new MRSFacade(emf);
         
     }
 
@@ -41,6 +50,10 @@ public class Flight {
 
         airlines = urls.parallelStream().map(string -> r.sendGet(string + "/" + from + "/" + date + "/" + tickets)).collect(Collectors.toList());
 
+        Log log = new Log(from, null, date, tickets);
+        
+        mrsf.addToLogSearch(log);
+        
         System.out.println("REST: " + airlines);
 
         return gson.toJson(airlines);
