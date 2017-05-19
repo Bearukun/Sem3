@@ -4,6 +4,7 @@ package test;
 import entity.Log;
 import entity.PU;
 import facades.MRSFacade;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,19 +13,16 @@ import org.junit.Before;
 
 public class MRSTestFirst {
     
-     MRSFacade mrsf;
+ 
+    private static MRSFacade mrsf;
+    private static EntityManagerFactory emf;
     
-    
-  
-    
-    public void setPersistenceUnit(){
-        PU.setPU_Name("pumrs");
-    }
     
     @Before
     public void initFacade(){
-        setPersistenceUnit();
-        mrsf = new MRSFacade(Persistence.createEntityManagerFactory("pumrs"));
+        
+        emf = Persistence.createEntityManagerFactory("pumrs");
+        mrsf = new MRSFacade(emf);
         
     }
     
@@ -35,7 +33,7 @@ public class MRSTestFirst {
         Log log = new Log("LAX", "CPH", "2017-06-10", 10);
         mrsf.addToLogSearch(log);
         Log returnLog = mrsf.getLog(1);
-        assertEquals(log, log);
+        assertEquals(returnLog, log);
         
         
         

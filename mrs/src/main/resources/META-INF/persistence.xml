@@ -32,6 +32,7 @@
       <property name="javax.persistence.jdbc.password" value="iphone2007"/>
       <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
   </persistence-unit>
   <!-- 
   This is used to mock away the real database for Unit Tests that involve database access
