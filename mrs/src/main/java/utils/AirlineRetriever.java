@@ -91,7 +91,8 @@ public class AirlineRetriever {
 
     // HTTP POST request
     public ReservationResponse sendPost(Reservation reservation, String url){
-
+        
+                System.out.println("HEJ:" + url);
        
        
                 try {

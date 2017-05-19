@@ -32,35 +32,23 @@ public class ReservationResource {
         builder = new GsonBuilder();
         builder.setPrettyPrinting();
         builder.excludeFieldsWithoutExposeAnnotation();
-        //gson = builder.create();
+        gson = builder.create();
         gOut = builder.create();
 
     }
 
-//    @POST
-//    @Path("{flightId}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public String postFlightsReservation(@PathParam("flightId") String flightId, String json) {
-//        
-//        System.out.println("hej");
-//        
-//        Reservation reservation = gson.fromJson(json, Reservation.class);
-//        
-//        return gOut.toJson(r.sendPost(reservation, "https://46.101.255.231.xip.io/airline/api/reservation/"+flightId));
-//   
-//    }
-
     @POST
     @Path("{flightId}")
-    public String getBookingDetails(@PathParam("flightId") String flightId){
-        List<Booking> bookings = new ArrayList();
-        List<Passenger> passengers = new ArrayList();
-        Passenger p1 = new Passenger("a","b");
-        Passenger p2 = new Passenger("c","d");
-        passengers.add(p1);
-        passengers.add(p2);
-        Booking b1 = new Booking(flightId,"Copenhagen Kastrup(CPH)","Charles de Gaulle International(CDG)",new Date(),120,2,"Peter Hansen",passengers);
-        bookings.add(b1);
-        return gson.toJson(bookings);
+    @Produces(MediaType.APPLICATION_JSON)
+    public String postFlightsReservation(@PathParam("flightId") String flightId, String json) {
+        
+       
+        
+        Reservation reservation = gson.fromJson(json, Reservation.class);
+       
+        return gOut.toJson(r.sendPost(reservation, "https://46.101.255.231.xip.io/airline/api/reservation/"+flightId));
+        
+   
     }
+
 }
