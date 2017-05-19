@@ -33,7 +33,8 @@ public class MrsTest {
         Log log = new Log("LAX", "CPH", "2017-06-10", 10);
         mrsf.addToLogSearch(log);
         Log returnLog = mrsf.getLog(1);
-        assertEquals(returnLog, log);
+        assertEquals(returnLog.getTicketAmount(), log.getTicketAmount());
+        
         
         
         
