@@ -116,8 +116,8 @@ class Facade {
             })
         };
         // fetch(URL + "api/user/add", conf, options)
-        // fetch(URL2+flightOutId, conf, options)
-        fetch(URL2+"100", conf, options)
+         fetch(URL2+flightOutId, conf, options)
+        //fetch(URL2+"100", conf, options)
             .then((res) => {
                 if (res.status > 210 || !res.ok) {
                     errorCode = res.status;
