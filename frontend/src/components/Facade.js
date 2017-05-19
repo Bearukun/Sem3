@@ -1,7 +1,7 @@
 import { observable, action, computed} from "mobx";
 import fetchHelper from "./fetchHelpers"
-const URL = "http://localhost:8084/seedMaven/api/flights/";
-const URL2 = "http://localhost:8084/seedMaven/api/reservation/";
+const URL = "http://localhost:8084/mrs/api/flights/";
+const URL2 = "http://localhost:8084/mrs/api/reservation/";
 const abc = "CPH/2017-05-04/4";
 class Facade {
     @observable messageFromServer = "";
