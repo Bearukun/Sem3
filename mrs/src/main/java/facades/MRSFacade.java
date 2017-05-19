@@ -48,11 +48,20 @@ public class MRSFacade {
         }
         
     }
+    
+    
 
     public Log getLog(int i) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(Log.class, i);
+            
+        } finally {
         
-        return null;
+            em.close();
+        }
         
+      
     }
 
     
