@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 
-public class MRSTestFirst {
+public class MRSTestFirst_IntegrationTest {
     
  
     private static MRSFacade mrsf;
