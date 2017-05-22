@@ -1,13 +1,10 @@
 import React from 'react'
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem, DropdownButton, Button} from 'react-bootstrap'
-import {index} from 'rc-calendar/assets/index.css'
-import  Calendar from 'rc-calendar'
-import { AppRegistry, View, Image } from 'react-native';
+import { Nav, Navbar, NavItem, Button} from 'react-bootstrap'
+import { View, Image } from 'react-native';
 import { Link } from 'react-router';
 import facade from './components/Facade'
 import {observer} from "mobx-react";
-import Autocomplete from 'react-autocomplete'
-import { getAirports, matchAirportToTerm, sortAirports, styles } from './components/airportUtil'
+
 
 
 
