@@ -330,9 +330,13 @@ class Searchresults extends React.Component {
                         </div>
                     </nav>
                 </div>
+
+
         );
     }
 }
+
+
 
 
 export default Searchresults
