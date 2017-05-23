@@ -1,12 +1,10 @@
 import React from 'react'
-import { Nav, Navbar, NavItem, NavDropdown, MenuItem, DropdownButton, Button} from 'react-bootstrap'
-import {index} from 'rc-calendar/assets/index.css'
-import  Calendar from 'rc-calendar'
+import { Nav, Navbar, NavItem, Button} from 'react-bootstrap'
+import { View, Image } from 'react-native';
 import { Link } from 'react-router';
 import facade from './components/Facade'
 import {observer} from "mobx-react";
-import Autocomplete from 'react-autocomplete'
-import { getAirports, matchAirportToTerm, sortAirports, styles } from './components/airportUtil'
+
 
 
 
@@ -94,11 +92,26 @@ extractTime = (evt) => {
                             {/*NavBar Title*/}
                             <a href="#">Search Flight</a>
                         </Navbar.Brand>
+
                     </Navbar.Header>
+
+
                     {/*NavBar Items*/}
                     <Nav>
                         {/*Input box for 'From Destination'*/}
+                        <NavItem eventKey={0} href="#">
+                        <View>
+
+                            <Image
+                                style={{width: 125, height: 80}}
+                                source={require('./pictures/jtlogo.jpg')}
+                            />
+
+
+                        </View>
+                        </NavItem>
                         <NavItem eventKey={1} href="#">
+
                             {/*Autocomplete for 'From Destination'*/}
                             <label htmlFor="airports-autocomplete-from">From </label>
                             <input type="text" id="from" placeholder="From (IATA)" size="10" maxLength="3"></input>
@@ -248,6 +261,7 @@ extractTime = (evt) => {
                 {/*{React.cloneElement(this.props.children, this)}*/}
 
                 {React.cloneElement(this.props.children, {flightType: this.state.selectTravelType})}
+
             </div>
         )
     }

@@ -1,6 +1,5 @@
 import React from 'react'
 import {Grid, Row, Col,} from 'react-bootstrap'
-import {AppRegistry, View, Image} from 'react-native';
 import facade from './components/Facade'
 import {observer} from "mobx-react";
 import {observable, action, computed} from "mobx";
@@ -330,9 +329,13 @@ class Searchresults extends React.Component {
                         </div>
                     </nav>
                 </div>
+
+
         );
     }
 }
+
+
 
 
 export default Searchresults
